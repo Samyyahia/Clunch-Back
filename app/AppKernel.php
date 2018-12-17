@@ -18,7 +18,6 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
             // Custom Bundles
-            new AppBundle\AppBundle(),
             new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
 
             // Sonata Core Bundles
