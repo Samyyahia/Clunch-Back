@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             // Custom Bundles
             new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
             new Clunch\AdminBundle\AdminBundle(),
+            new Clunch\UserBundle\UserBundle(),
 
             // Sonata Core Bundles
             new Sonata\CoreBundle\SonataCoreBundle(),
@@ -36,7 +37,7 @@ class AppKernel extends Kernel
             new JMS\SerializerBundle\JMSSerializerBundle(),
 
             // FOSUser Bundle
-            // new FOS\UserBundle\FOSUserBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

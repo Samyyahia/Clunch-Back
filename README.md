@@ -9,6 +9,7 @@ Dependencies
   * **Basic Symfony v3.4 Setup**
   * **FOSUserBundle v2.0**
   * **Sonata v3.35**
+  * **Sonata Media Bundle v3.13**
 
 --------------
 
@@ -21,6 +22,14 @@ Setup
   $ php bin/console assets:install
   $ php bin/console doctrine:schema:update --force
 ```
+***
+### Create a SUPER-ADMIN user
+```shell
+  $ php bin/console fos:user:create admin --super-admin
+```
+> Password: **clunch**
+***
+
 
 ### Launch
 ```shell
