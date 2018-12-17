@@ -1,0 +1,10 @@
+Clunch\UserBundle\Entity\User:
+    type: entity
+    table: user
+    repositoryClass: Clunch\UserBundle\Repository\UserRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
