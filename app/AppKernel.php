@@ -19,6 +19,7 @@ class AppKernel extends Kernel
 
             // Custom Bundles
             new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
+            new Clunch\AdminBundle\AdminBundle(),
 
             // Sonata Core Bundles
             new Sonata\CoreBundle\SonataCoreBundle(),

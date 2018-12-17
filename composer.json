@@ -5,6 +5,7 @@
     "description": "The \"Symfony Standard Edition\" distribution",
     "autoload": {
         "psr-4": {
+            "Clunch\\": "src/Clunch",
             "Application\\": "src/Application"
         },
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
