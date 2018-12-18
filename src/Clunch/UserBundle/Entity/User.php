@@ -14,9 +14,67 @@ class User extends BaseUser
      */
     protected $id;
 
+    /**
+     * @var string
+     */
+    private $desc;
+
+    /**
+     * @var \Application\Sonata\MediaBundle\Entity\Media
+     */
+    private $picture;
+
     public function __construct()
     {
         parent::__construct();
         // your own logic
+    }
+
+    /**
+     * Set desc
+     *
+     * @param string $desc
+     *
+     * @return User
+     */
+    public function setDesc($desc)
+    {
+        $this->desc = $desc;
+
+        return $this;
+    }
+
+    /**
+     * Get desc
+     *
+     * @return string
+     */
+    public function getDesc()
+    {
+        return $this->desc;
+    }
+
+    /**
+     * Set picture
+     *
+     * @param \Application\Sonata\MediaBundle\Entity\Media $picture
+     *
+     * @return User
+     */
+    public function setPicture(\Application\Sonata\MediaBundle\Entity\Media $picture = null)
+    {
+        $this->picture = $picture;
+
+        return $this;
+    }
+
+    /**
+     * Get picture
+     *
+     * @return \Application\Sonata\MediaBundle\Entity\Media
+     */
+    public function getPicture()
+    {
+        return $this->picture;
     }
 }
