@@ -1,4 +1,6 @@
 services:
-#    admin.example:
-#        class: Clunch\AdminBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
+   admin.user:
+           class: Clunch\AdminBundle\Admin\UserAdmin
+           arguments: [~, Clunch\UserBundle\Entity\User, ~]
+           tags:
+               - { name: sonata.admin, manager_type: orm, label: Utilisateurs, group: "Utilisateurs", on_top: true }
