@@ -20,6 +20,13 @@ class UserAdmin extends AbstractAdmin
                 'label'    => 'Nom d\'utilisateur'
               ))
               ->add('email')
+              ->add('picture', 'sonata_type_model_list', array(
+                'label'   => 'Image de Profil',
+              ), array(
+                'link_parameters' => array(
+                  'context' => 'default'
+                )
+              ))
               ->add('enabled', CheckboxType::class, array(
                 'required' => false,
                 'label'    => 'Activer',
