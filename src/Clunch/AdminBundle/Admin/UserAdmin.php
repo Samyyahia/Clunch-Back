@@ -7,6 +7,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
+// TODO: User request -> Select Only Non-Admin Users
 class UserAdmin extends AbstractAdmin
 {
   protected $baseRouteName = 'admin_clunch_users';
@@ -26,6 +27,9 @@ class UserAdmin extends AbstractAdmin
                 'link_parameters' => array(
                   'context' => 'default'
                 )
+              ))
+              ->add('desc', null, array(
+                'label'   => 'Description du Profil'
               ))
               ->add('enabled', CheckboxType::class, array(
                 'required' => false,

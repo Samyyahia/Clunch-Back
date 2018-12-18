@@ -3,4 +3,4 @@ services:
            class: Clunch\AdminBundle\Admin\UserAdmin
            arguments: [~, Clunch\UserBundle\Entity\User, ~]
            tags:
-               - { name: sonata.admin, manager_type: orm, label: Utilisateurs, group: "Utilisateurs", on_top: true }
+               - { name: sonata.admin, manager_type: orm, label: Utilisateurs, group: "Utilisateurs", on_top: true, icon: '<i class="fa fa-users"></i>' }
