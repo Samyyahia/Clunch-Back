@@ -1,0 +1,19 @@
+Clunch\CompanyBundle\Entity\Company:
+    type: entity
+    table: null
+    repositoryClass: Clunch\CompanyBundle\Repository\CompanyRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        token:
+            type: string
+            length: 255
+            unique: true
+    lifecycleCallbacks: {  }
