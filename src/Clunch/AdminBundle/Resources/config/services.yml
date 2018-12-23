@@ -4,3 +4,9 @@ services:
            arguments: [~, Clunch\UserBundle\Entity\User, ~]
            tags:
                - { name: sonata.admin, manager_type: orm, label: Utilisateurs, group: "Utilisateurs", on_top: true, icon: '<i class="fa fa-users"></i>' }
+
+   admin.company:
+           class: Clunch\AdminBundle\Admin\CompanyAdmin
+           arguments: [~, Clunch\CompanyBundle\Entity\Company, ~]
+           tags:
+               - { name: sonata.admin, manager_type: orm, label: Entreprise, group: "Entreprise", on_top: true, icon: '<i class="fa fa-building"></i>' }

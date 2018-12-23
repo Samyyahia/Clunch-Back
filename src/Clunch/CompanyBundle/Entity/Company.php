@@ -102,6 +102,8 @@ class Company
      */
     public function addUser(\Clunch\UserBundle\Entity\User $user)
     {
+        $user->setCompany($this);
+
         $this->users[] = $user;
 
         return $this;
@@ -114,6 +116,8 @@ class Company
      */
     public function removeUser(\Clunch\UserBundle\Entity\User $user)
     {
+        $user->setCompany(null);
+
         $this->users->removeElement($user);
     }
 
@@ -125,5 +129,10 @@ class Company
     public function getUsers()
     {
         return $this->users;
+    }
+
+    public function __toString()
+    {
+      return $this->name;
     }
 }
