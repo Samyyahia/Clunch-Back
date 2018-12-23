@@ -77,4 +77,33 @@ class User extends BaseUser
     {
         return $this->picture;
     }
+    /**
+     * @var \Clunch\CompanyBundle\Entity\Company
+     */
+    private $company;
+
+
+    /**
+     * Set company
+     *
+     * @param \Clunch\CompanyBundle\Entity\Company $company
+     *
+     * @return User
+     */
+    public function setCompany(\Clunch\CompanyBundle\Entity\Company $company = null)
+    {
+        $this->company = $company;
+
+        return $this;
+    }
+
+    /**
+     * Get company
+     *
+     * @return \Clunch\CompanyBundle\Entity\Company
+     */
+    public function getCompany()
+    {
+        return $this->company;
+    }
 }

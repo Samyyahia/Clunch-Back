@@ -20,3 +20,10 @@ Clunch\UserBundle\Entity\User:
         joinColumn:
           name: picture_id
           referencedColumnName: id
+
+      company:
+        targetEntity: Clunch\CompanyBundle\Entity\Company
+        inversedBy: users
+        joinColumn:
+          name: company_id
+          referencedColumnName: id

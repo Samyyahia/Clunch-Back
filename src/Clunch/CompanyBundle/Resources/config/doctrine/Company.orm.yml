@@ -16,4 +16,10 @@ Clunch\CompanyBundle\Entity\Company:
             type: string
             length: 255
             unique: true
+
+    oneToMany:
+        users:
+            targetEntity: Clunch\UserBundle\Entity\User
+            mappedBy: company
+
     lifecycleCallbacks: {  }
