@@ -80,5 +80,59 @@ class Company
     {
         return $this->token;
     }
-}
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $users;
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add user
+     *
+     * @param \Clunch\UserBundle\Entity\User $user
+     *
+     * @return Company
+     */
+    public function addUser(\Clunch\UserBundle\Entity\User $user)
+    {
+        $user->setCompany($this);
+
+        $this->users[] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Remove user
+     *
+     * @param \Clunch\UserBundle\Entity\User $user
+     */
+    public function removeUser(\Clunch\UserBundle\Entity\User $user)
+    {
+        $user->setCompany(null);
+
+        $this->users->removeElement($user);
+    }
+
+    /**
+     * Get users
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUsers()
+    {
+        return $this->users;
+    }
+
+    public function __toString()
+    {
+      return $this->name;
+    }
+}
