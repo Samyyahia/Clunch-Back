@@ -6,6 +6,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Form\Type\ModelType;
+use Clunch\UserBundle\Entity\User;
 
 class CompanyAdmin extends AbstractAdmin
 {
@@ -15,12 +16,14 @@ class CompanyAdmin extends AbstractAdmin
 
   protected function configureFormFields(FormMapper $formMapper)
   {
+
     $formMapper
               ->add('name', null, array('label' => 'Nom de l\'entreprise'))
               ->add('token', null, array('label' => 'Token d\'accès'))
-              ->add('users', 'sonata_type_model', array(
+              ->add('users', ModelType::class, array(
                 'multiple' => true,
                 'by_reference' => false,
+                'query' => $this->getUsers('ROLE_USER')
               ));
   }
 
@@ -43,5 +46,18 @@ class CompanyAdmin extends AbstractAdmin
                   'edit' => array(),
                 )
               ));
+  }
+
+  protected function getUsers($role = null)
+  {
+    $em = $this->modelManager->getEntityManager(User::class);
+
+    $query = $em->createQueryBuilder('u')
+                ->select('u')
+                ->from(User::class, 'u')
+                ->where('u.roles LIKE :role')
+                ->setParameter('role', '%'.$role.'%');
+
+    return $query;
   }
 }
