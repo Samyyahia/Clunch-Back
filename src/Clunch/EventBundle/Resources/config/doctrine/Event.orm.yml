@@ -1,0 +1,21 @@
+Clunch\EventBundle\Entity\Event:
+    type: entity
+    table: null
+    repositoryClass: Clunch\EventBundle\Repository\EventRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        recipe:
+            type: string
+            length: 255
+        description:
+            type: text
+        quantity:
+            type: integer
+        date:
+            type: datetime
+    lifecycleCallbacks: {  }
