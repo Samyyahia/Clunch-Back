@@ -5,8 +5,8 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use Sonata\AdminBundle\Form\Type\ModelType;
-
+use Sonata\AdminBundle\Form\Type\ModelListType;
+use Clunch\UserBundle\Entity\User;
 
 class EventAdmin extends AbstractAdmin
 {
@@ -21,7 +21,11 @@ class EventAdmin extends AbstractAdmin
               ->add('recipe', null, array('label' => 'Plat'))
               ->add('description', null, array('label' => 'Description'))
               ->add('quantity', null, array('label' => 'Quantité'))
-              ->add('date', null, array('label' => 'Date'));
+              ->add('date', null, array('label' => 'Date'))
+              ->add('user', ModelListType::class, array(
+                'by_reference' => false,
+                'label' => 'Utilisateur'
+              ));
   }
 
   protected function configureDatagridFilters(DatagridMapper $datagridMapper)
@@ -30,7 +34,8 @@ class EventAdmin extends AbstractAdmin
               ->add('recipe', null, array('label' => 'Plat'))
               ->add('description', null, array('label' => 'Description'))
               ->add('quantity', null, array('label' => 'Quantité'))
-              ->add('date', null, array('label' => 'Date'));
+              ->add('date', null, array('label' => 'Date'))
+              ->add('user', null, array('label' => 'Utilisateur'));
   }
 
   protected function configureListFields(ListMapper $listMapper)
@@ -42,23 +47,11 @@ class EventAdmin extends AbstractAdmin
               ->add('description', null, array('label' => 'Description'))
               ->add('quantity', null, array('label' => 'Quantité'))
               ->add('date', null, array('label' => 'Date'))
+              ->add('user', null, array('label' => 'Utilisateur'))
               ->add('_action', 'actions', array(
                 'actions' => array(
                   'edit' => array(),
                 )
               ));
-  }
-
-  protected function getUsers($role = null)
-  {
-    $em = $this->modelManager->getEntityManager(User::class);
-
-    $query = $em->createQueryBuilder('u')
-                ->select('u')
-                ->from(User::class, 'u')
-                ->where('u.roles LIKE :role')
-                ->setParameter('role', '%'.$role.'%');
-
-    return $query;
   }
 }

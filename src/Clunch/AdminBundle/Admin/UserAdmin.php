@@ -57,4 +57,16 @@ class UserAdmin extends AbstractAdmin
                 )
               ));
   }
+
+  public function createQuery($context = 'list')
+  {
+    $role = 'ROLE_USER';
+    $query = parent::createQuery($context);
+    $query->andWhere(
+      $query->expr()->like($query->getRootAliases()[0] . '.roles', ':role')
+    );
+    $query->setParameter('role', '%'.$role.'%');
+
+    return $query;
+  }
 }
