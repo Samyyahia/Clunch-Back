@@ -10,3 +10,9 @@ services:
            arguments: [~, Clunch\CompanyBundle\Entity\Company, ~]
            tags:
                - { name: sonata.admin, manager_type: orm, label: Entreprise, group: "Entreprise", on_top: true, icon: '<i class="fa fa-building"></i>' }
+
+   admin.event:
+           class: Clunch\AdminBundle\Admin\EventAdmin
+           arguments: [~, Clunch\EventBundle\Entity\Event, ~]
+           tags:
+               - { name: sonata.admin, manager_type: orm, label: Evenement, group: "Evenement", on_top: true, icon: '<i class="fa fa-calendar"></i>' }
