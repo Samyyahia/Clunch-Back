@@ -138,5 +138,33 @@ class Event
     {
         return $this->date;
     }
-}
+    /**
+     * @var \Clunch\UserBundle\Entity\User
+     */
+    private $user;
 
+
+    /**
+     * Set user
+     *
+     * @param \Clunch\UserBundle\Entity\User $user
+     *
+     * @return Event
+     */
+    public function setUser(\Clunch\UserBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Clunch\UserBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+}

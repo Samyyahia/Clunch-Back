@@ -18,4 +18,10 @@ Clunch\EventBundle\Entity\Event:
             type: integer
         date:
             type: datetime
-    lifecycleCallbacks: {  }
+
+    manyToOne:
+      user:
+        targetEntity: Clunch\UserBundle\Entity\User
+        joinColumn:
+          name: user_id
+          referencedColumnName: id
