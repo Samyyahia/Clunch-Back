@@ -1,4 +1,5 @@
 <?php
+
 namespace Clunch\AdminBundle\Admin;
 
 use Sonata\AdminBundle\Admin\AbstractAdmin;

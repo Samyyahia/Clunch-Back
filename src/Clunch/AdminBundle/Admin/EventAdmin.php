@@ -1,4 +1,5 @@
 <?php
+
 namespace Clunch\AdminBundle\Admin;
 
 use Sonata\AdminBundle\Admin\AbstractAdmin;
@@ -6,10 +7,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Form\Type\ModelListType;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Clunch\UserBundle\Entity\User;
-
 
 class EventAdmin extends AbstractAdmin
 {

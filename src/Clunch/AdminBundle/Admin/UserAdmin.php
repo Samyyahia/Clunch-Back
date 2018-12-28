@@ -1,4 +1,5 @@
 <?php
+
 namespace Clunch\AdminBundle\Admin;
 
 use Sonata\AdminBundle\Admin\AbstractAdmin;
@@ -7,7 +8,6 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
-// TODO: User request -> Select Only Non-Admin Users
 class UserAdmin extends AbstractAdmin
 {
   protected $baseRouteName = 'admin_clunch_users';
