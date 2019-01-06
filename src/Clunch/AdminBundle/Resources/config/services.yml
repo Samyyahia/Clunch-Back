@@ -16,3 +16,9 @@ services:
            arguments: [~, Clunch\EventBundle\Entity\Event, ~]
            tags:
                - { name: sonata.admin, manager_type: orm, label: Evenement, group: "Evenement", on_top: true, icon: '<i class="fa fa-calendar"></i>' }
+
+   admin.recipe:
+           class: Clunch\AdminBundle\Admin\RecipeAdmin
+           arguments: [~, Clunch\RecipeBundle\Entity\Recipe, ~]
+           tags:
+               - { name: sonata.admin, manager_type: orm, label: Evenement, group: "Recette", on_top: true, icon: '<i class="fa fa-file-text"></i>' }
