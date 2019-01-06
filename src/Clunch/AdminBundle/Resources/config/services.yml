@@ -21,4 +21,10 @@ services:
            class: Clunch\AdminBundle\Admin\RecipeAdmin
            arguments: [~, Clunch\RecipeBundle\Entity\Recipe, ~]
            tags:
-               - { name: sonata.admin, manager_type: orm, label: Evenement, group: "Recette", on_top: true, icon: '<i class="fa fa-file-text"></i>' }
+               - { name: sonata.admin, manager_type: orm, label: Recette, group: "Recette", on_top: true, icon: '<i class="fa fa-file-text"></i>' }
+
+   admin.category:
+           class: Clunch\AdminBundle\Admin\CategoryAdmin
+           arguments: [~, Clunch\CategoryBundle\Entity\Category, ~]
+           tags:
+               - { name: sonata.admin, manager_type: orm, label: Catégorie, group: "Catégorie", on_top: true, icon: '<i class="fa fa-tags"></i>' }
