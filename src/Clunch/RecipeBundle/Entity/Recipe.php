@@ -167,4 +167,33 @@ class Recipe
     {
         return $this->image;
     }
+    /**
+     * @var \Clunch\CategoryBundle\Entity\Category
+     */
+    private $category;
+
+
+    /**
+     * Set category
+     *
+     * @param \Clunch\CategoryBundle\Entity\Category $category
+     *
+     * @return Recipe
+     */
+    public function setCategory(\Clunch\CategoryBundle\Entity\Category $category = null)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \Clunch\CategoryBundle\Entity\Category
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
 }
