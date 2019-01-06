@@ -28,3 +28,9 @@ services:
            arguments: [~, Clunch\CategoryBundle\Entity\Category, ~]
            tags:
                - { name: sonata.admin, manager_type: orm, label: Catégorie, group: "Catégorie", on_top: true, icon: '<i class="fa fa-tags"></i>' }
+
+   admin.ingredient:
+           class: Clunch\AdminBundle\Admin\IngredientAdmin
+           arguments: [~, Clunch\IngredientBundle\Entity\Ingredient, ~]
+           tags:
+               - { name: sonata.admin, manager_type: orm, label: Ingredient, group: "Ingredient", on_top: true, icon: '<i class="fa fa-apple"></i>' }
