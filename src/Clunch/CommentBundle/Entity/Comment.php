@@ -80,5 +80,33 @@ class Comment
     {
         return $this->content;
     }
-}
+    /**
+     * @var \Clunch\EventBundle\Entity\Event
+     */
+    private $event;
 
+
+    /**
+     * Set event
+     *
+     * @param \Clunch\EventBundle\Entity\Event $event
+     *
+     * @return Comment
+     */
+    public function setEvent(\Clunch\EventBundle\Entity\Event $event = null)
+    {
+        $this->event = $event;
+
+        return $this;
+    }
+
+    /**
+     * Get event
+     *
+     * @return \Clunch\EventBundle\Entity\Event
+     */
+    public function getEvent()
+    {
+        return $this->event;
+    }
+}

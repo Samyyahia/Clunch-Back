@@ -8,7 +8,7 @@ namespace Clunch\EventBundle\Entity;
 class Event
 {
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
@@ -23,7 +23,7 @@ class Event
     private $description;
 
     /**
-     * @var int
+     * @var integer
      */
     private $quantity;
 
@@ -32,11 +32,28 @@ class Event
      */
     private $date;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $comments;
+
+    /**
+     * @var \Clunch\UserBundle\Entity\User
+     */
+    private $user;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->comments = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -108,7 +125,7 @@ class Event
     /**
      * Get quantity
      *
-     * @return int
+     * @return integer
      */
     public function getQuantity()
     {
@@ -138,11 +155,40 @@ class Event
     {
         return $this->date;
     }
-    /**
-     * @var \Clunch\UserBundle\Entity\User
-     */
-    private $user;
 
+    /**
+     * Add comment
+     *
+     * @param \Clunch\CommentBundle\Entity\Comment $comment
+     *
+     * @return Event
+     */
+    public function addComment(\Clunch\CommentBundle\Entity\Comment $comment)
+    {
+        $this->comments[] = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Remove comment
+     *
+     * @param \Clunch\CommentBundle\Entity\Comment $comment
+     */
+    public function removeComment(\Clunch\CommentBundle\Entity\Comment $comment)
+    {
+        $this->comments->removeElement($comment);
+    }
+
+    /**
+     * Get comments
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
 
     /**
      * Set user

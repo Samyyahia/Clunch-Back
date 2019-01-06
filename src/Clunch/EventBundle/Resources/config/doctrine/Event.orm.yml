@@ -25,3 +25,8 @@ Clunch\EventBundle\Entity\Event:
         joinColumn:
           name: user_id
           referencedColumnName: id
+
+    oneToMany:
+      comments:
+        targetEntity: Clunch\CommentBundle\Entity\Comment
+        mappedBy: event
