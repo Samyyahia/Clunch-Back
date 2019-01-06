@@ -1,3 +1,0 @@
-recipe_homepage:
-    path:     /
-    defaults: { _controller: RecipeBundle:Default:index }
