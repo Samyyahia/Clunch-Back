@@ -28,4 +28,11 @@ Clunch\RecipeBundle\Entity\Recipe:
           name: image_id
           referencedColumnName: id
 
+      category:
+        targetEntity: Clunch\CategoryBundle\Entity\Category
+        fetch: EAGER
+        joinColumn:
+          name: category_id
+          referencedColumnName: id
+
     lifecycleCallbacks: {  }
