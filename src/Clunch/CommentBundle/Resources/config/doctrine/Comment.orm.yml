@@ -13,4 +13,14 @@ Clunch\CommentBundle\Entity\Comment:
             type: datetime
         content:
             type: text
+
+
+    manyToOne:
+        event:
+          targetEntity: Clunch\EventBundle\Entity\Event
+          inversedBy: comments
+          joinColumn:
+            name: event_id
+            referencedColumnName: id
+
     lifecycleCallbacks: {  }
