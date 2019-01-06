@@ -40,6 +40,7 @@ class AppKernel extends Kernel
             new Clunch\UserBundle\UserBundle(),
             new Clunch\CompanyBundle\CompanyBundle(),
             new Clunch\EventBundle\EventBundle(),
+            new Clunch\CommentBundle\CommentBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
