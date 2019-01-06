@@ -19,6 +19,9 @@ class RecipeAdmin extends AbstractAdmin
               ->add('title', null, array(
                 'label'    => 'Titre de la recette'
               ))
+              ->add('category', 'sonata_type_model_list', array(
+                'label'    => 'Catégorie de la recette',
+              ))
               ->add('slug')
               ->add('image', 'sonata_type_model_list', array(
                 'label'   => 'Image',
@@ -40,6 +43,9 @@ class RecipeAdmin extends AbstractAdmin
     $datagridMapper
                   ->add('title', null, array('label' => 'Titre de la recette'))
                   ->add('slug')
+                  ->add('category', null, array(
+                    'label'    => 'Catégorie de la recette',
+                  ))
                   ->add('duration', null, array('label' => 'Durée de la recette'));
   }
 
@@ -50,6 +56,9 @@ class RecipeAdmin extends AbstractAdmin
     $listMapper
               ->addIdentifier('title', null, array('label' => 'Titre de la recette'))
               ->add('slug')
+              ->add('category', null, array(
+                'label'    => 'Catégorie de la recette',
+              ))
               ->add('duration', null, array('label' => 'Durée de la recette'))
               ->add('_action', 'actions', array(
                 'actions' => array(
