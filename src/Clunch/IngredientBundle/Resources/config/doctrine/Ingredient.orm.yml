@@ -1,0 +1,22 @@
+Clunch\IngredientBundle\Entity\Ingredient:
+    type: entity
+    table: null
+    repositoryClass: Clunch\IngredientBundle\Repository\IngredientRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+
+    manyToOne:
+      image:
+        targetEntity: Application\Sonata\MediaBundle\Entity\Media
+        fetch: EAGER
+        joinColumn:
+          name: image_id
+          referencedColumnName: id
