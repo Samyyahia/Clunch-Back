@@ -196,4 +196,104 @@ class Recipe
     {
         return $this->category;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $phonenumbers;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->phonenumbers = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add phonenumber
+     *
+     * @param \Clunch\IngredientBundle\Entity\Ingredient $phonenumber
+     *
+     * @return Recipe
+     */
+    public function addPhonenumber(\Clunch\IngredientBundle\Entity\Ingredient $phonenumber)
+    {
+        $this->phonenumbers[] = $phonenumber;
+
+        return $this;
+    }
+
+    /**
+     * Remove phonenumber
+     *
+     * @param \Clunch\IngredientBundle\Entity\Ingredient $phonenumber
+     */
+    public function removePhonenumber(\Clunch\IngredientBundle\Entity\Ingredient $phonenumber)
+    {
+        $this->phonenumbers->removeElement($phonenumber);
+    }
+
+    /**
+     * Get phonenumbers
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPhonenumbers()
+    {
+        return $this->phonenumbers;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $ingredient;
+
+
+    /**
+     * Add ingredient
+     *
+     * @param \Clunch\IngredientBundle\Entity\Ingredient $ingredient
+     *
+     * @return Recipe
+     */
+    public function addIngredient(\Clunch\IngredientBundle\Entity\Ingredient $ingredient)
+    {
+        $this->ingredient[] = $ingredient;
+
+        return $this;
+    }
+
+    /**
+     * Remove ingredient
+     *
+     * @param \Clunch\IngredientBundle\Entity\Ingredient $ingredient
+     */
+    public function removeIngredient(\Clunch\IngredientBundle\Entity\Ingredient $ingredient)
+    {
+        $this->ingredient->removeElement($ingredient);
+    }
+
+    /**
+     * Get ingredient
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getIngredient()
+    {
+        return $this->ingredient;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $ingredients;
+
+
+    /**
+     * Get ingredients
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getIngredients()
+    {
+        return $this->ingredients;
+    }
 }
