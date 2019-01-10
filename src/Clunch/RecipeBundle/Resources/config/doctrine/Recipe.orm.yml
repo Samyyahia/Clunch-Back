@@ -35,4 +35,16 @@ Clunch\RecipeBundle\Entity\Recipe:
           name: category_id
           referencedColumnName: id
 
+    manyToMany:
+      ingredients:
+        targetEntity: Clunch\IngredientBundle\Entity\Ingredient
+        joinTable:
+          name: recipes_ingredients
+          joinColumns:
+            recipe_id:
+              referencedColumnName: id
+          inverseJoinColumns:
+            ingredient_id:
+              referencedColumnName: id
+
     lifecycleCallbacks: {  }

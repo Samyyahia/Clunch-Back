@@ -33,6 +33,9 @@ class RecipeAdmin extends AbstractAdmin
               ->add('body', null, array(
                 'label'   => 'Description de la recette'
               ))
+              ->add('ingredients', null, array(
+                'label'   => 'Ingredients de la recette'
+              ))
               ->add('duration', null, array(
                 'label'    => 'Durée de la recette',
               ));
