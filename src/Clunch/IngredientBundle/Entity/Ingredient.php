@@ -80,4 +80,9 @@ class Ingredient
     {
         return $this->image;
     }
+
+    public function __toString()
+    {
+      return $this->name;
+    }
 }
