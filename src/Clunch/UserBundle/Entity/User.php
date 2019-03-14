@@ -106,4 +106,43 @@ class User extends BaseUser
     {
         return $this->company;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $allergy;
+
+
+    /**
+     * Add allergy
+     *
+     * @param \Clunch\AllergyBundle\Entity\Allergy $allergy
+     *
+     * @return User
+     */
+    public function addAllergy(\Clunch\AllergyBundle\Entity\Allergy $allergy)
+    {
+        $this->allergy[] = $allergy;
+
+        return $this;
+    }
+
+    /**
+     * Remove allergy
+     *
+     * @param \Clunch\AllergyBundle\Entity\Allergy $allergy
+     */
+    public function removeAllergy(\Clunch\AllergyBundle\Entity\Allergy $allergy)
+    {
+        $this->allergy->removeElement($allergy);
+    }
+
+    /**
+     * Get allergy
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAllergy()
+    {
+        return $this->allergy;
+    }
 }
