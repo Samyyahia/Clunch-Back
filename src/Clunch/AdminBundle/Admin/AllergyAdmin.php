@@ -7,30 +7,28 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
-class CategoryAdmin extends AbstractAdmin
+class AllergyAdmin extends AbstractAdmin
 {
-    protected $baseRouteName = 'admin_clunch_categories';
+    protected $baseRouteName = 'admin_clunch_allergies';
 
-    protected $baseRoutePattern = 'categories';
+    protected $baseRoutePattern = 'allergies';
 
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('name', null, array(
-                'label'    => 'Nom de la catégorie'
+            ->add('title', null, array(
+                'label'    => 'Nom de l\'allergie'
             ))
-            ->add('slug')
             ->add('description', null, array(
-                'label'   => 'Description de la catégorie'
+                'label'   => 'Description de l\'allergie'
             ));
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('name', null, array('label' => 'Nom de la catégorie'))
-            ->add('slug')
-            ->add('description', null, array('label' => 'Description de la catégorie'));
+            ->add('title', null, array('label' => 'Nom de l\'allergie'))
+            ->add('description', null, array('label' => 'Description de l\'allergie'));
     }
 
     protected function configureListFields(ListMapper $listMapper)
@@ -38,9 +36,8 @@ class CategoryAdmin extends AbstractAdmin
         unset($this->listModes['mosaic']);
 
         $listMapper
-            ->addIdentifier('name', null, array('label' => 'Nom de la catégorie'))
-            ->add('slug')
-            ->add('description', null, array('label' => 'Description de la catégorie'))
+            ->addIdentifier('title', null, array('label' => 'Nom de l\'allergie'))
+            ->add('description', null, array('label' => 'Description de l\'allergie'))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'edit' => array(),
