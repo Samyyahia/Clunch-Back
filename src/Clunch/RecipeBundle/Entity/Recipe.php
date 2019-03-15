@@ -335,4 +335,43 @@ class Recipe
     {
         return $this->allergy;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $tag;
+
+
+    /**
+     * Add tag
+     *
+     * @param \Clunch\TagBundle\Entity\Tag $tag
+     *
+     * @return Recipe
+     */
+    public function addTag(\Clunch\TagBundle\Entity\Tag $tag)
+    {
+        $this->tag[] = $tag;
+
+        return $this;
+    }
+
+    /**
+     * Remove tag
+     *
+     * @param \Clunch\TagBundle\Entity\Tag $tag
+     */
+    public function removeTag(\Clunch\TagBundle\Entity\Tag $tag)
+    {
+        $this->tag->removeElement($tag);
+    }
+
+    /**
+     * Get tag
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTag()
+    {
+        return $this->tag;
+    }
 }
