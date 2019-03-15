@@ -374,4 +374,9 @@ class Recipe
     {
         return $this->tag;
     }
+
+    public function __toString()
+    {
+        return $this->title;
+    }
 }
