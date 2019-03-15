@@ -36,6 +36,13 @@ class RecipeAdmin extends AbstractAdmin
             ->add('ingredients', null, array(
                 'label'   => 'Ingredients de la recette'
             ))
+            ->add('allergy', 'sonata_type_model', array(
+                'multiple'     => true,
+                'property'     => 'title',
+                'sortable'     => true,
+                'by_reference' => false,
+                'label'        => 'Allergies de la recette'
+            ))
             ->add('duration', null, array(
                 'label'    => 'Durée de la recette',
             ));

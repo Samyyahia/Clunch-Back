@@ -47,4 +47,15 @@ Clunch\RecipeBundle\Entity\Recipe:
             ingredient_id:
               referencedColumnName: id
 
+      allergy:
+        targetEntity: Clunch\AllergyBundle\Entity\Allergy
+        joinTable:
+          name: recipe_allergies
+          joinColumns:
+            recipe_id:
+              referencedColumnName: id
+          inverseJoinColumns:
+            allergy_id:
+              referencedColumnName: id
+
     lifecycleCallbacks: {  }
