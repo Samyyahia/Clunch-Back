@@ -27,3 +27,15 @@ Clunch\UserBundle\Entity\User:
         joinColumn:
           name: company_id
           referencedColumnName: id
+
+    manyToMany:
+      allergy:
+        targetEntity: Clunch\AllergyBundle\Entity\Allergy
+        joinTable:
+          name: users_allergies
+          joinColumns:
+            user_id:
+              referencedColumnName: id
+          inverseJoinColumns:
+            allergy_id:
+              referencedColumnName: id

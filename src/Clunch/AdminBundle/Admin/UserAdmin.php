@@ -31,6 +31,13 @@ class UserAdmin extends AbstractAdmin
             ->add('desc', null, array(
                 'label'   => 'Description du Profil'
             ))
+            ->add('allergy', 'sonata_type_model', array(
+                'multiple'     => true,
+                'property'     => 'title',
+                'sortable'     => true,
+                'by_reference' => false,
+                'label'        => 'Allergies de l\'utilisateur'
+            ))
             ->add('enabled', CheckboxType::class, array(
                 'required' => false,
                 'label'    => 'Activer',

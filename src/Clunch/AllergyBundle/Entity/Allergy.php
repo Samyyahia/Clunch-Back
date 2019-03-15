@@ -80,5 +80,10 @@ class Allergy
     {
         return $this->description;
     }
+
+    public function __toString()
+    {
+        return $this->title;
+    }
 }
 
