@@ -27,7 +27,7 @@ services:
            class: Clunch\AdminBundle\Admin\CategoryAdmin
            arguments: [~, Clunch\CategoryBundle\Entity\Category, ~]
            tags:
-               - { name: sonata.admin, manager_type: orm, label: Catégorie, group: "Catégorie", on_top: true, icon: '<i class="fa fa-tags"></i>' }
+               - { name: sonata.admin, manager_type: orm, label: Catégorie, group: "Catégorie", on_top: true, icon: '<i class="fa fa-object-group"></i>' }
 
    admin.ingredient:
            class: Clunch\AdminBundle\Admin\IngredientAdmin
@@ -39,4 +39,10 @@ services:
            class: Clunch\AdminBundle\Admin\AllergyAdmin
            arguments: [~, Clunch\AllergyBundle\Entity\Allergy, ~]
            tags:
-               - { name: sonata.admin, manager_type: orm, label: Allergie, group: "Allergie", on_top: true, icon: '<i class="fa fa-apple"></i>' }
+               - { name: sonata.admin, manager_type: orm, label: Allergie, group: "Allergie", on_top: true, icon: '<i class="fa fa-medkit"></i>' }
+
+   admin.tag:
+           class: Clunch\AdminBundle\Admin\TagAdmin
+           arguments: [~, Clunch\TagBundle\Entity\Tag, ~]
+           tags:
+               - { name: sonata.admin, manager_type: orm, label: Tag, group: "Tag", on_top: true, icon: '<i class="fa fa-tags"></i>' }

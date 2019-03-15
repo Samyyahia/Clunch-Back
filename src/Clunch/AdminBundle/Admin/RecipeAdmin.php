@@ -36,6 +36,13 @@ class RecipeAdmin extends AbstractAdmin
             ->add('ingredients', null, array(
                 'label'   => 'Ingredients de la recette'
             ))
+            ->add('tag', 'sonata_type_model', array(
+                'multiple'     => true,
+                'property'     => 'name',
+                'sortable'     => true,
+                'by_reference' => false,
+                'label'        => 'Tags de la recette'
+            ))
             ->add('allergy', 'sonata_type_model', array(
                 'multiple'     => true,
                 'property'     => 'title',
