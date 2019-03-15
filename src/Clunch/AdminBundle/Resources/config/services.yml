@@ -46,3 +46,9 @@ services:
            arguments: [~, Clunch\TagBundle\Entity\Tag, ~]
            tags:
                - { name: sonata.admin, manager_type: orm, label: Tag, group: "Tag", on_top: true, icon: '<i class="fa fa-tags"></i>' }
+
+   admin.newsletter:
+           class: Clunch\AdminBundle\Admin\NewsletterAdmin
+           arguments: [~, Clunch\NewsletterBundle\Entity\Newsletter, ~]
+           tags:
+               - { name: sonata.admin, manager_type: orm, label: Newsletter, group: "Newsletter", on_top: true, icon: '<i class="fa fa-envelope"></i>' }
