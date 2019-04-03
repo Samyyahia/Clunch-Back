@@ -1,0 +1,2 @@
+category:
+    resource: "@CategoryBundle/Resources/config/routing.yml"

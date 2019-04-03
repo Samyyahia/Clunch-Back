@@ -1,0 +1,3 @@
+category_list:
+    type:     rest
+    resource: Clunch\CategoryBundle\Controller\CategoryApiController
