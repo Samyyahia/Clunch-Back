@@ -35,7 +35,7 @@ class NewsletterApiController extends Controller
         if ($mail && $phone) {
             $agreement = $request->get('agreement') ?: false;
 
-            if ($agreement === 'true') {
+            if ($agreement === 'true' && $agreement) {
                 $em = $this->getDoctrine()->getManager();
 
                 $newsletterRepository = $em->getRepository(Newsletter::class);
