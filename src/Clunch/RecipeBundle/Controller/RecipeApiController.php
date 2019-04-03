@@ -21,6 +21,7 @@ class RecipeApiController extends Controller
     /**
      * Function to get Recipe Item by id
      * Route: /api/recipes/{id}
+     * Method: GET
      *
      * @param $id
      * @return JsonResponse

@@ -3,3 +3,6 @@ category:
 
 recipe:
     resource: "@RecipeBundle/Resources/config/routing.yml"
+
+newsletter:
+    resource: "@NewsletterBundle/Resources/config/routing.yml"

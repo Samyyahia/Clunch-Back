@@ -22,6 +22,7 @@ class CategoryApiController extends Controller
     /**
      * Function to get Category List From Category Entity
      * Route: /api/categories
+     * Method: GET
      *
      * @return JsonResponse
      */
@@ -40,6 +41,7 @@ class CategoryApiController extends Controller
     /**
      * Function to get Category Item by id and linked Recipies
      * Route: /api/categories/{id}
+     * Method: GET
      *
      * @param $id
      * @return JsonResponse
