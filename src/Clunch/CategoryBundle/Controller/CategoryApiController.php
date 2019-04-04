@@ -52,7 +52,7 @@ class CategoryApiController extends Controller
 
         $em = $this->getDoctrine()->getManager();
         $categoryRepository = $em->getRepository(Category::class);
-        $categoryItem = $categoryRepository->findOneById($id);
+        $categoryItem = $categoryRepository->find($id);
 
         $recipeRepository = $em->getRepository(Recipe::class);
         $recipeList = $recipeRepository->findByCategory($categoryItem);

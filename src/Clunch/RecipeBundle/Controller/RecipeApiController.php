@@ -33,7 +33,7 @@ class RecipeApiController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $recipeRepository = $em->getRepository(Recipe::class);
-        $recipeItem = $recipeRepository->findOneById($id);
+        $recipeItem = $recipeRepository->find($id);
 
         $recipeItem = $serializer->toArray($recipeItem);
 
