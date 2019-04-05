@@ -190,4 +190,58 @@ class EventApiController extends Controller
 
         return new JsonResponse($res);
     }
+
+    /**
+     * Function to Join an Event
+     * Route: /api/events/{event_id}/users/{user_id}/joins
+     * Method: POST
+     *
+     * @param Event $event
+     * @param User $user_id
+     * @return JsonResponse
+     * @throws \Exception
+     */
+    public function postEventUserJoinAction(Event $event, User $user_id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $event->addParticipant($user_id);
+
+        $em->persist($event);
+        $em->flush();
+
+        $res = [
+            'code' => 200,
+            'message' => 'Vous avez rejoint cet événement avec succès'
+        ];
+
+        return new JsonResponse($res);
+    }
+
+    /**
+     * Function to Leave an Event
+     * Route: /api/events/{event_id}/users/{user_id}/leaves
+     * Method: POST
+     *
+     * @param Event $event
+     * @param User $user_id
+     * @return JsonResponse
+     * @throws \Exception
+     */
+    public function postEventUserLeaveAction(Event $event, User $user_id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $event->removeParticipant($user_id);
+
+        $em->persist($event);
+        $em->flush();
+
+        $res = [
+            'code' => 200,
+            'message' => 'Vous avez quitté cet événement avec succès'
+        ];
+
+        return new JsonResponse($res);
+    }
 }
