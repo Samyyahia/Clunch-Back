@@ -45,6 +45,29 @@ class EventApiController extends Controller
     }
 
     /**
+     * Function to get Event List by User Company
+     * Route: /api/events/{user_id}/user
+     * Method: GET
+     *
+     * @param User $user_id
+     * @return JsonResponse
+     * @throws \Exception
+     */
+    public function getEventsUserAction(User $user_id)
+    {
+        $serializer = $this->get('jms_serializer');
+
+        $em = $this->getDoctrine()->getManager();
+
+        $eventRepository = $em->getRepository(Event::class);
+        $event = $eventRepository->findByRelatedUser($user_id);
+
+        $event = $serializer->toArray($event);
+
+        return new JsonResponse($event);
+    }
+
+    /**
      * Function to get Event Item by id
      * Route: /api/events/{id}
      * Method: GET

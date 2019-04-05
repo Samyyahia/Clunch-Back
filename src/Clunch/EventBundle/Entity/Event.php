@@ -213,4 +213,43 @@ class Event
     {
         return $this->user;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $participants;
+
+
+    /**
+     * Add participant
+     *
+     * @param \Clunch\UserBundle\Entity\User $participant
+     *
+     * @return Event
+     */
+    public function addParticipant(\Clunch\UserBundle\Entity\User $participant)
+    {
+        $this->participants[] = $participant;
+
+        return $this;
+    }
+
+    /**
+     * Remove participant
+     *
+     * @param \Clunch\UserBundle\Entity\User $participant
+     */
+    public function removeParticipant(\Clunch\UserBundle\Entity\User $participant)
+    {
+        $this->participants->removeElement($participant);
+    }
+
+    /**
+     * Get participants
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getParticipants()
+    {
+        return $this->participants;
+    }
 }

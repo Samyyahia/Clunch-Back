@@ -29,7 +29,8 @@ class EventAdmin extends AbstractAdmin
             ->add('user', ModelListType::class, array(
                 'by_reference' => false,
                 'label' => 'Utilisateur'
-            ));
+            ))
+            ->add('participants');
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
