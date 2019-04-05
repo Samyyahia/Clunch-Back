@@ -131,8 +131,15 @@ class Company
         return $this->users;
     }
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
-      return $this->name;
+        if (!$this->name) {
+            return '';
+        }
+
+        return $this->name;
     }
 }

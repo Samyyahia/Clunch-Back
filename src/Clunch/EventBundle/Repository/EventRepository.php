@@ -10,4 +10,23 @@ namespace Clunch\EventBundle\Repository;
  */
 class EventRepository extends \Doctrine\ORM\EntityRepository
 {
+    /**
+     * Query To get Event By Current User Company
+     *
+     * @param $company
+     */
+    public function findByUserCompany($company)
+    {
+        $current_date = New \DateTime();
+
+        $query = $this->createQueryBuilder('p')
+            ->where('p.date >= :current_date')
+            ->leftJoin('p.user', 'u')
+            ->andWhere('u.company IS NOT NULL')
+            ->andWhere('u.company = :company')
+            ->setParameter('current_date', $current_date)
+            ->setParameter('company', $company);
+
+        return $query->getQuery()->getResult();
+    }
 }
