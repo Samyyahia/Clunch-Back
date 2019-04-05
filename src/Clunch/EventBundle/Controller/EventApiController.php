@@ -13,6 +13,7 @@ use Clunch\EventBundle\Entity\Event;
 use Clunch\UserBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class EventApiController
@@ -67,7 +68,7 @@ class EventApiController extends Controller
 
     /**
      * Function to get Event List by date and Company
-     * Route: /api/events/{id}/company
+     * Route: /api/events/{company_id}/companies/{date}/date
      * Method: GET
      *
      * @param Company $company_id
@@ -111,5 +112,59 @@ class EventApiController extends Controller
         $event = $serializer->toArray($event);
 
         return new JsonResponse($event);
+    }
+
+    /**
+     * Function to Create an Event
+     * Route: /api/events/{user_id}
+     * Method: POST
+     *
+     * @param Request $request
+     * @param User $user_id
+     * @return JsonResponse
+     * @throws \Exception
+     */
+    public function postEventAction(Request $request, User $user_id)
+    {
+
+        $recipe = $request->get('recipe') ?: false;
+        $date = $request->get('date') ?: false;
+        $desc = $request->get('desc') ?: false;
+        $qty = $request->get('quantity') ?: false;
+
+        if ($recipe && $date && $desc && $qty) {
+            $em = $this->getDoctrine()->getManager();
+            $event = new Event();
+
+            $event->setRecipe($recipe);
+            $event->setDate(new \DateTime($date));
+            $event->setDescription($desc);
+            $event->setQuantity((int) $qty);
+            $event->setUser($user_id);
+
+            $em->persist($event);
+            $em->flush();
+
+            $res['code'] = 200;
+            $res['message'] = 'Evenement Ajouté avec succès';
+        } else {
+            $res['code'] = 500;
+            $res['message'] = 'Champs Manquant(s) :';
+
+            if (!$recipe) {
+                $res['champs'][] = 'recipe';
+            }
+            if (!$date) {
+                $res['champs'][] = 'date';
+            }
+            if (!$desc) {
+                $res['champs'][] = 'desc';
+            }
+            if (!$qty) {
+                $res['champs'][] = 'quantity';
+            }
+        }
+
+        return new JsonResponse($res);
     }
 }
