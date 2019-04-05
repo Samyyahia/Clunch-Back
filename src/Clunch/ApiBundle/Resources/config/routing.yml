@@ -6,3 +6,6 @@ recipe:
 
 newsletter:
     resource: "@NewsletterBundle/Resources/config/routing.yml"
+
+user:
+    resource: "@UserBundle/Resources/config/routing.yml"

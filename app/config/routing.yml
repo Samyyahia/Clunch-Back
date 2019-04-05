@@ -1,10 +1,9 @@
 api:
-    prefix:   /api/
     resource: "@ApiBundle/Resources/config/routing.yml"
-    type: rest
+    prefix:   /api/
 
 user:
-    resource: "@UserBundle/Resources/config/routing.yml"
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
     prefix:   /
 
 admin:
