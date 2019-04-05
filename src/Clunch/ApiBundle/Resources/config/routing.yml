@@ -9,3 +9,6 @@ newsletter:
 
 user:
     resource: "@UserBundle/Resources/config/routing.yml"
+
+event:
+    resource: "@EventBundle/Resources/config/routing.yml"
