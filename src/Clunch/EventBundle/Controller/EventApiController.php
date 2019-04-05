@@ -27,6 +27,7 @@ class EventApiController extends Controller
      *
      * @param Company $company_id
      * @return JsonResponse
+     * @throws \Exception
      */
     public function getEventsCompanyAction(Company $company_id)
     {
@@ -58,6 +59,54 @@ class EventApiController extends Controller
 
         $eventRepository = $em->getRepository(Event::class);
         $event = $eventRepository->find($id);
+
+        $event = $serializer->toArray($event);
+
+        return new JsonResponse($event);
+    }
+
+    /**
+     * Function to get Event List by date and Company
+     * Route: /api/events/{id}/company
+     * Method: GET
+     *
+     * @param Company $company_id
+     * @param \DateTime $date
+     * @return JsonResponse
+     * @throws \Exception
+     */
+    public function getEventsCompanyDateAction(Company $company_id, \DateTime $date)
+    {
+        $serializer = $this->get('jms_serializer');
+
+        $em = $this->getDoctrine()->getManager();
+
+        $eventRepository = $em->getRepository(Event::class);
+        $event = $eventRepository->findByUserCompanyAndDate($company_id, $date);
+
+        $event = $serializer->toArray($event);
+
+        return new JsonResponse($event);
+    }
+
+    /**
+     * Function to get Event List by date and Company
+     * Route: /api/events/{id}/company
+     * Method: GET
+     *
+     * @param Company $company_id
+     * @param \DateTime $date
+     * @return JsonResponse
+     * @throws \Exception
+     */
+    public function getUserEvent(Company $company_id, \DateTime $date)
+    {
+        $serializer = $this->get('jms_serializer');
+
+        $em = $this->getDoctrine()->getManager();
+
+        $eventRepository = $em->getRepository(Event::class);
+        $event = $eventRepository->findByUserCompanyAndDate($company_id, $date);
 
         $event = $serializer->toArray($event);
 

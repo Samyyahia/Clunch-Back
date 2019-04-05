@@ -14,6 +14,8 @@ class EventRepository extends \Doctrine\ORM\EntityRepository
      * Query To get Event By Current User Company
      *
      * @param $company
+     * @return array
+     * @throws \Exception
      */
     public function findByUserCompany($company)
     {
@@ -29,4 +31,26 @@ class EventRepository extends \Doctrine\ORM\EntityRepository
 
         return $query->getQuery()->getResult();
     }
+
+    /**
+     * Query To get Event By Current User Company And Date
+     *
+     * @param $company
+     * @return array
+     * @throws \Exception
+     */
+    public function findByUserCompanyAndDate($company, $date)
+    {
+        $query = $this->createQueryBuilder('p')
+            ->where('p.date = :current_date')
+            ->leftJoin('p.user', 'u')
+            ->andWhere('u.company IS NOT NULL')
+            ->andWhere('u.company = :company')
+            ->setParameter('current_date', $date)
+            ->setParameter('company', $company);
+
+        return $query->getQuery()->getResult();
+    }
 }
+
+
