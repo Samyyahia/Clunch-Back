@@ -19,8 +19,8 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 class UserApiController extends Controller
 {
     /**
-     * Function to get Category List From Category Entity
-     * Route: /api/categories
+     * Function to get User List From User Entity
+     * Route: /api/users
      * Method: GET
      *
      * @return JsonResponse
@@ -39,6 +39,10 @@ class UserApiController extends Controller
     }
 
     /**
+     * Function to get single User Item From Category Entity
+     * Route: /api/users/{id}
+     * Method: GET
+     *
      * @param $id
      * @return JsonResponse
      */

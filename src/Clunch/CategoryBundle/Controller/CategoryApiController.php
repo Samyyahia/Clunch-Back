@@ -39,7 +39,7 @@ class CategoryApiController extends Controller
     }
 
     /**
-     * Function to get Category Item by id and linked Recipies
+     * Function to get Category Item by id
      * Route: /api/categories/{id}
      * Method: GET
      *
