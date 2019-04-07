@@ -23,4 +23,11 @@ Clunch\CommentBundle\Entity\Comment:
             name: event_id
             referencedColumnName: id
 
+        user:
+          targetEntity: Clunch\UserBundle\Entity\User
+          inversedBy: comments
+          joinColumn:
+            name: user_id
+            referencedColumnName: id
+
     lifecycleCallbacks: {  }

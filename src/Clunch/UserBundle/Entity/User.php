@@ -145,4 +145,43 @@ class User extends BaseUser
     {
         return $this->allergy;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $comments;
+
+
+    /**
+     * Add comment
+     *
+     * @param \Clunch\CommentBundle\Entity\Comment $comment
+     *
+     * @return User
+     */
+    public function addComment(\Clunch\CommentBundle\Entity\Comment $comment)
+    {
+        $this->comments[] = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Remove comment
+     *
+     * @param \Clunch\CommentBundle\Entity\Comment $comment
+     */
+    public function removeComment(\Clunch\CommentBundle\Entity\Comment $comment)
+    {
+        $this->comments->removeElement($comment);
+    }
+
+    /**
+     * Get comments
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
 }

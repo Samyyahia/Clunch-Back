@@ -13,6 +13,11 @@ Clunch\UserBundle\Entity\User:
             type: text
             nullable: true
 
+    oneToMany:
+      comments:
+        targetEntity: Clunch\CommentBundle\Entity\Comment
+        mappedBy: user
+
     manyToOne:
       picture:
         targetEntity: Application\Sonata\MediaBundle\Entity\Media
