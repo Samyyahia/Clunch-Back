@@ -21,14 +21,14 @@ class CommentApiController extends Controller
 {
     /**
      * Function to create a new Comment on a Event
-     * Route: /api/comment
+     * Route: /api/comments
      * Method: POST
      *
      * @param Request $request
      * @return JsonResponse
      * @throws \Exception
      */
-    public function postComment(Request $request)
+    public function postCommentAction(Request $request)
     {
         $user = $request->get('user') ?: false;
         $content = $request->get('content') ?: false;
