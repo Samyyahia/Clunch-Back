@@ -23,7 +23,7 @@ class EventApiController extends Controller
 {
     /**
      * Function to get Event List by User Company
-     * Route: /api/events/{id}/company
+     * Route: /api/events/{company_id}/company
      * Method: GET
      *
      * @param Company $company_id
@@ -45,7 +45,7 @@ class EventApiController extends Controller
     }
 
     /**
-     * Function to get Event List by User Company
+     * Function to get Event List by User
      * Route: /api/events/{user_id}/user
      * Method: GET
      *
@@ -115,7 +115,7 @@ class EventApiController extends Controller
 
     /**
      * Function to get Event List by date and Company
-     * Route: /api/events/{id}/company
+     * Route: /api/events/{$company_id}/company/{date}
      * Method: GET
      *
      * @param Company $company_id
@@ -139,7 +139,7 @@ class EventApiController extends Controller
 
     /**
      * Function to Create an Event
-     * Route: /api/events/{user_id}
+     * Route: /api/events/{user_id}/create
      * Method: POST
      *
      * @param Request $request
@@ -147,7 +147,7 @@ class EventApiController extends Controller
      * @return JsonResponse
      * @throws \Exception
      */
-    public function postEventAction(Request $request, User $user_id)
+    public function postEventCreateAction(Request $request, User $user_id)
     {
 
         $recipe = $request->get('recipe') ?: false;

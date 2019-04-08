@@ -76,7 +76,7 @@ class NewsletterApiController extends Controller
         }
 
         $res = [
-            'error' => $error,
+            'code' => ($error)? 400: 200,
             'message' => $message
         ];
 
