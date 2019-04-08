@@ -39,6 +39,9 @@ class AppKernel extends Kernel
             // FOSRest Bundle
             new FOS\RestBundle\FOSRestBundle(),
 
+            // JWTAuth
+            new Lexik\Bundle\JWTAuthenticationBundle\LexikJWTAuthenticationBundle(),
+
             // Custom Bundles
             new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
             new Clunch\AdminBundle\AdminBundle(),

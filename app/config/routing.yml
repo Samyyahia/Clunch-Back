@@ -23,6 +23,9 @@ media:
     resource: '@SonataMediaBundle/Resources/config/routing/media.xml'
     prefix: /media
 
+api_login_check:
+    path: /api/login_check
+
 api:
     resource: "@ApiBundle/Resources/config/routing.yml"
     prefix:   /api/

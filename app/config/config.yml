@@ -145,3 +145,10 @@ jms_serializer:
 
 sensio_framework_extra:
     view: { annotations: false }
+
+lexik_jwt_authentication:
+    secret_key:       '%kernel.project_dir%/app/config/jwt/private.pem'
+    public_key:       '%kernel.project_dir%/app/config/jwt/public.pem'
+    pass_phrase:      'clunch'
+    token_ttl:        3600
+
