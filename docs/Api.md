@@ -27,7 +27,7 @@
 -   Authorization:
     -   Bearer Token: Token
 -   Response: 
-``` json
+```
 [
     {
         "id": Integer,
@@ -46,7 +46,7 @@
 -   Authorization:
     -   Bearer Token: Token
 -   Response: 
-``` json
+```
 [
     "category": {
         "id": Integer,
@@ -79,7 +79,7 @@
 -   Authorization:
     -   Bearer Token: Token
 -   Response: 
-``` json
+```
 {
     "id": Integer,
     "title": String,
@@ -100,7 +100,7 @@
 -   Authorization:
     -   Bearer Token: Token
 -   Response: 
-``` json
+```
 {
     "id": Integer,
     "recipe": String,
@@ -120,7 +120,7 @@ Permet de récupérer la liste de tous les evenements de la comapagnie de l'util
 -   Authorization:
     -   Bearer Token: Token
 -   Response: 
-``` json
+```
 [
     {
         "id": Integer,
@@ -144,7 +144,7 @@ Permet de récupérer la liste de tous les evenements de l'utilisateur courant (
 -   Authorization:
     -   Bearer Token: Token
 -   Response: 
-``` json
+```
 [
     {
         "id": Integer,
@@ -171,7 +171,7 @@ Permet de récupérer la liste de tous les evenements de la date courrente
 -   Authorization:
     -   Bearer Token: Token
 -   Response: 
-``` json
+```
 [
     {
         "id": Integer,
@@ -199,7 +199,7 @@ Permet de récupérer la liste de tous les evenements de la date courrente
     -   desc (String)
     -   quantity (String ou Int)
 -   Response: **En fonction de ce qui est envoyé l'api retourne un code et un message différent**
-``` json
+```
 [
     "code": Integer,
     "message": String
@@ -212,7 +212,7 @@ Permet de récupérer la liste de tous les evenements de la date courrente
 -   Authorization:
     -   Bearer Token: Token
 -   Response: **En fonction de ce qui est envoyé l'api retourne un code et un message différent**
-``` json
+```
 [
     "code": Integer,
     "message": String
@@ -225,7 +225,7 @@ Permet de récupérer la liste de tous les evenements de la date courrente
 -   Authorization:
     -   Bearer Token: Token
 -   Response: **En fonction de ce qui est envoyé l'api retourne un code et un message différent**
-``` json
+```
 [
     "code": Integer,
     "message": String
@@ -243,7 +243,7 @@ Permet de récupérer la liste de tous les evenements de la date courrente
     - phone (String)
     - agreement (String)
 -   Response: **En fonction de ce qui est envoyé l'api retourne un code et un message différent**
-``` json
+```
 {
     "code": Integer,
     "message": String
