@@ -20,6 +20,12 @@
         "lastLogin": DateTme,
         "groups": Array,
         "roles": Array,
+        "company": {
+            "id": Integer,
+            "name": String,
+            "token": String,
+            "users": Array
+        }
         "allergy": Array,
         "comments": Array
     }
