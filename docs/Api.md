@@ -5,8 +5,26 @@
 -   Route: **/api/login_check**
 -   Header: **Content-Type: application/json**
 -   Body: `{"username":"username","password":"password"}`
--   Response: `{token: token}`
-
+-   Response: 
+```
+{
+    "token": token,
+    "user": {
+        "id": Integer,
+        "username": String,
+        "usernameCanonical": String,
+        "email": String,
+        "emailCanonical": String,
+        "enabled": true,
+        "password": String(hash),
+        "lastLogin": DateTme,
+        "groups": Array,
+        "roles": Array,
+        "allergy": Array,
+        "comments": Array
+    }
+}
+```
 ### Get User List
 -   Method: **GET**
 -   Route: **/api/users**
