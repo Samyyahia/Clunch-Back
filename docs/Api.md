@@ -1,10 +1,23 @@
 # Clunch API
 
+### Email Check
+-   Method: **POST**
+-   Route: **/api/users/checks**
+-   Parameters:
+    -   email (String)
+-   Response: **En fonction de ce qui est envoyé l'api retourne un code et un message différent**
+```
+{
+    "code": Integer,
+    "message": String
+}
+```
+
 ### Login
 -   Method: **POST**
 -   Route: **/api/login_check**
 -   Header: **Content-Type: application/json**
--   Body: `{"username":"username","password":"password"}`
+-   Body: `{"email":"email","password":"password"}`
 -   Response: 
 ```
 {
