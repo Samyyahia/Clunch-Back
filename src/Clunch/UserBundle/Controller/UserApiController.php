@@ -11,6 +11,7 @@ namespace Clunch\UserBundle\Controller;
 use Clunch\UserBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class UserApiController
@@ -57,5 +58,27 @@ class UserApiController extends Controller
         $user = $serializer->toArray($user);
 
         return new JsonResponse($user);
+    }
+
+    /**
+     * Function to get single User Item From Category Entity
+     * Route: /api/users/check
+     * Method: POST
+     *
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function postUserCheckAction(Request $request) {
+        $em = $this->getDoctrine()->getManager();
+
+        $email = $request->get('email');
+
+        $userRepository = $em->getRepository(User::class);
+        $user = $userRepository->findOneByEmail($email);
+
+        $res['code'] = ($user)? 200 : 400;
+        $res['message'] = ($res['code'] === 200)? 'Il y a bien un utilisateur a cette adresse mail': 'Il n\'y a aucun utilisateur a cette adresse mail';
+
+        return new JsonResponse($res);
     }
 }
