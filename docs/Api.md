@@ -79,34 +79,26 @@
 
 ### Get Single Category
 -   Method: **GET**
--   Route: **/api/categories/{id}**
+-   Route: **/api/categories/{id}/recipes**
 -   Authorization:
     -   Bearer Token: Token
 -   Response: 
 ```
 [
-    "category": {
+    {
         "id": Integer,
-        "name": String,
+        "title": String,
         "slug": String,
-        "description": String
-    },
-    "recipies": [
-        {
-            "id": Integer,
-            "title": String,
-            "slug": String,
-            "body": String,
-            "duration": DateTime,
-            "image": Media,
-            "category": Category
-            "ingredients": Array(Ingredient),
-            "allergy": Array(Allergy),
-            "tag": Array(Tag)
-        },    
-        {...},
-        {...}
-    ]
+        "body": String,
+        "duration": DateTime,
+        "image": Media,
+        "category": Category
+        "ingredients": Array(Ingredient),
+        "allergy": Array(Allergy),
+        "tag": Array(Tag)
+    },    
+    {...},
+    {...}
 ]
 ```
 

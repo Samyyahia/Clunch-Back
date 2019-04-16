@@ -40,13 +40,13 @@ class CategoryApiController extends Controller
 
     /**
      * Function to get Category Item by id
-     * Route: /api/categories/{id}
+     * Route: /api/categories/{id}/recipes
      * Method: GET
      *
      * @param $id
      * @return JsonResponse
      */
-    public function getCategoryAction($id)
+    public function getCategoryRecipesAction($id)
     {
         $serializer = $this->get('jms_serializer');
 
@@ -60,8 +60,6 @@ class CategoryApiController extends Controller
         $categoryItem = $serializer->toArray($categoryItem);
         $recipeList = $serializer->toArray($recipeList);
 
-        $res = ['category' => $categoryItem, 'recipies' => $recipeList];
-
-        return new JsonResponse($res);
+        return new JsonResponse($recipeList);
     }
 }
