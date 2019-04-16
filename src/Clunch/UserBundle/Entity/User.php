@@ -184,4 +184,16 @@ class User extends BaseUser
     {
         return $this->comments;
     }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        if (!$this->username) {
+            return '';
+        }
+
+        return $this->username;
+    }
 }

@@ -252,4 +252,16 @@ class Event
     {
         return $this->participants;
     }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        if (!$this->description) {
+            return '';
+        }
+
+        return $this->description;
+    }
 }

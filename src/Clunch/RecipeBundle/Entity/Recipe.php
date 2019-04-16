@@ -375,8 +375,15 @@ class Recipe
         return $this->tag;
     }
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
+        if (!$this->title) {
+            return '';
+        }
+
         return $this->title;
     }
 }

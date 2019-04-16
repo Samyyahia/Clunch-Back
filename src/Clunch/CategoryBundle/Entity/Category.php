@@ -110,8 +110,15 @@ class Category
         return $this->description;
     }
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
+        if (!$this->name) {
+            return '';
+        }
+
         return $this->name;
     }
 }

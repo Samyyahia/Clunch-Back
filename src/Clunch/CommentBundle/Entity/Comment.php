@@ -138,4 +138,17 @@ class Comment
     {
         return $this->user;
     }
+
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        if (!$this->content) {
+            return '';
+        }
+
+        return $this->content;
+    }
 }
