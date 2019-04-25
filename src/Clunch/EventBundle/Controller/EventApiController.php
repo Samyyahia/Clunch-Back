@@ -139,7 +139,7 @@ class EventApiController extends Controller
 
     /**
      * Function to get Event List by Participating User
-     * Route: /api/events/{user}/user
+     * Route: /api/events/{user}/participating
      * Method: GET
      *
      * @param User $user
