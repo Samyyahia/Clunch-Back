@@ -190,10 +190,34 @@ Permet de récupérer la liste de tous les evenements de l'utilisateur courant (
 ]
 ```
 
-### Get User related Events
+### Get User Participating Events
 Permet de récupérer la liste de tous les evenements où l'utilisateur courant est inscrit
 -   Method: **GET**
 -   Route: **/api/events/{user}/participating**
+-   Authorization:
+    -   Bearer Token: Token
+-   Response: 
+```
+[
+    {
+        "id": Integer,
+        "recipe": String,
+        "description": String,
+        "quantity": Integer,
+        "date": DateTime,
+        "comments": Array(Comment),
+        "user": User
+        "participants": Array(User)
+    },
+    {...},
+    {...}
+]
+```
+
+### Get User Created Events
+Permet de récupérer la liste de tous les evenements que l'utilisateur courant à créer
+-   Method: **GET**
+-   Route: **/api/events/{user}/created**
 -   Authorization:
     -   Bearer Token: Token
 -   Response: 
