@@ -175,15 +175,17 @@ class EventApiController extends Controller
 
         $recipe = $request->get('recipe') ?: false;
         $date = $request->get('date') ?: false;
+        $limitDate = $request->get('limitDate') ?: false;
         $desc = $request->get('desc') ?: false;
         $qty = $request->get('quantity') ?: false;
 
-        if ($recipe && $date && $desc && $qty) {
+        if ($recipe && $date && $desc && $qty && $limitDate) {
             $em = $this->getDoctrine()->getManager();
             $event = new Event();
 
             $event->setRecipe($recipe);
             $event->setDate(new \DateTime($date));
+            $event->setLimitDate(new \DateTime($limitDate));
             $event->setDescription($desc);
             $event->setQuantity((int) $qty);
             $event->setUser($user_id);

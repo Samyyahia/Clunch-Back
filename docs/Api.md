@@ -249,6 +249,7 @@ Permet de récupérer la liste de tous les evenements de la date courrente
 -   Parameters:
     -   recipe (String)
     -   date (String) => format: dd.MM.YYYY
+    -   limitDate (String) => format: dd.MM.YYYY
     -   desc (String)
     -   quantity (String ou Int)
 -   Response: **En fonction de ce qui est envoyé l'api retourne un code et un message différent**
