@@ -258,10 +258,10 @@ class Event
      */
     public function __toString()
     {
-        if (!$this->description) {
+        if (!$this->recipe) {
             return '';
         }
 
-        return $this->description;
+        return $this->recipe;
     }
 }

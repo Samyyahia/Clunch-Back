@@ -73,6 +73,23 @@ class EventRepository extends \Doctrine\ORM\EntityRepository
 
         return $query->getQuery()->getResult();
     }
+
+    /**
+     * Query To get Participating Event By Current User Company And Date
+     *
+     * @param $user
+     * @return array
+     * @throws \Exception
+     */
+    public function findParticipating(int $user)
+    {
+        $query = $this->createQueryBuilder('p')
+            ->orderBy('p.date', 'ASC');
+        $query->join('p.participants', 'u')
+            ->where($query->expr()->eq('u.id', $user));
+
+        return $query->getQuery()->getResult();
+    }
 }
 
 
