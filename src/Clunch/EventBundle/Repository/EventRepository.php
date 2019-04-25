@@ -26,6 +26,7 @@ class EventRepository extends \Doctrine\ORM\EntityRepository
             ->leftJoin('p.user', 'u')
             ->andWhere('u.company IS NOT NULL')
             ->andWhere('u.company = :company')
+            ->orderBy('p.date', 'ASC')
             ->setParameter('current_date', $current_date)
             ->setParameter('company', $company);
 
@@ -48,6 +49,7 @@ class EventRepository extends \Doctrine\ORM\EntityRepository
             ->where('p.user = :user')
             ->orWhere(':user MEMBER OF p.participants')
             ->andWhere('p.date >= :current_date')
+            ->orderBy('p.date', 'ASC')
             ->setParameter('current_date', $current_date)
             ->setParameter('user', $user);
 
@@ -68,6 +70,7 @@ class EventRepository extends \Doctrine\ORM\EntityRepository
             ->leftJoin('p.user', 'u')
             ->andWhere('u.company IS NOT NULL')
             ->andWhere('u.company = :company')
+            ->orderBy('p.date', 'ASC')
             ->setParameter('current_date', $date)
             ->setParameter('company', $company);
 
