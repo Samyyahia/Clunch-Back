@@ -18,6 +18,8 @@ Clunch\EventBundle\Entity\Event:
             type: integer
         date:
             type: datetime
+        limitDate:
+            type: datetime
 
     manyToOne:
       user:

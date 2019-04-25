@@ -264,4 +264,33 @@ class Event
 
         return $this->recipe;
     }
+    /**
+     * @var \DateTime
+     */
+    private $limitDate;
+
+
+    /**
+     * Set limitDate
+     *
+     * @param \DateTime $limitDate
+     *
+     * @return Event
+     */
+    public function setLimitDate($limitDate)
+    {
+        $this->limitDate = $limitDate;
+
+        return $this;
+    }
+
+    /**
+     * Get limitDate
+     *
+     * @return \DateTime
+     */
+    public function getLimitDate()
+    {
+        return $this->limitDate;
+    }
 }

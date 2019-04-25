@@ -26,6 +26,10 @@ class EventAdmin extends AbstractAdmin
                 'label' => 'Date',
                 'widget' => 'single_text'
             ))
+            ->add('limitDate', DateType::class, array(
+                'label' => 'Date limite d\'inscription à l\'évenement',
+                'widget' => 'single_text'
+            ))
             ->add('user', ModelListType::class, array(
                 'by_reference' => false,
                 'label' => 'Utilisateur'
