@@ -161,6 +161,29 @@ class EventApiController extends Controller
     }
 
     /**
+     * Function to get Event List Created by User
+     * Route: /api/events/{user}/created
+     * Method: GET
+     *
+     * @param User $user
+     * @return JsonResponse
+     * @throws \Exception
+     */
+    public function getEventsCreatedAction(User $user)
+    {
+        $serializer = $this->get('jms_serializer');
+
+        $em = $this->getDoctrine()->getManager();
+
+        $eventRepository = $em->getRepository(Event::class);
+        $event = $eventRepository->findByUser($user->getId(), ['date' => 'ASC']);
+
+        $event = $serializer->toArray($event);
+
+        return new JsonResponse($event);
+    }
+
+    /**
      * Function to Create an Event
      * Route: /api/events/{user_id}/create
      * Method: POST
