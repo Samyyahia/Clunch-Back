@@ -39,6 +39,9 @@ class AppKernel extends Kernel
             // FOSRest Bundle
             new FOS\RestBundle\FOSRestBundle(),
 
+            // CORS Bundle
+            new Nelmio\CorsBundle\NelmioCorsBundle(),
+
             // JWTAuth
             new Lexik\Bundle\JWTAuthenticationBundle\LexikJWTAuthenticationBundle(),
 
