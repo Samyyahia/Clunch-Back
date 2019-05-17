@@ -140,6 +140,15 @@ fos_rest:
         serialize_null: true
 
 jms_serializer:
+    metadata:
+        auto_detection: false
+        directories:
+            Category:
+                namespace_prefix: "Clunch\\CategoryBundle\\Entity"
+                path: "@CategoryBundle/Resources/config/serializer"
+            Recipe:
+                namespace_prefix: "Clunch\\RecipeBundle\\Entity"
+                path: "@RecipeBundle/Resources/config/serializer"
     handlers:
         datetime:
             default_format: "Y-m-d\\TH:i:sP"

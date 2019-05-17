@@ -8,7 +8,7 @@ namespace Clunch\RecipeBundle\Entity;
 class Recipe
 {
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
@@ -32,11 +32,44 @@ class Recipe
      */
     private $duration;
 
+    /**
+     * @var array
+     */
+    private $ingredients;
+
+    /**
+     * @var \Application\Sonata\MediaBundle\Entity\Media
+     */
+    private $image;
+
+    /**
+     * @var \Clunch\CategoryBundle\Entity\Category
+     */
+    private $category;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $allergy;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $tag;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->allergy = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->tag = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -138,11 +171,30 @@ class Recipe
     {
         return $this->duration;
     }
-    /**
-     * @var \Application\Sonata\MediaBundle\Entity\Media
-     */
-    private $image;
 
+    /**
+     * Set ingredients
+     *
+     * @param array $ingredients
+     *
+     * @return Recipe
+     */
+    public function setIngredients($ingredients)
+    {
+        $this->ingredients = $ingredients;
+
+        return $this;
+    }
+
+    /**
+     * Get ingredients
+     *
+     * @return array
+     */
+    public function getIngredients()
+    {
+        return $this->ingredients;
+    }
 
     /**
      * Set image
@@ -167,11 +219,6 @@ class Recipe
     {
         return $this->image;
     }
-    /**
-     * @var \Clunch\CategoryBundle\Entity\Category
-     */
-    private $category;
-
 
     /**
      * Set category
@@ -196,111 +243,6 @@ class Recipe
     {
         return $this->category;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $phonenumbers;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->phonenumbers = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add phonenumber
-     *
-     * @param \Clunch\IngredientBundle\Entity\Ingredient $phonenumber
-     *
-     * @return Recipe
-     */
-    public function addPhonenumber(\Clunch\IngredientBundle\Entity\Ingredient $phonenumber)
-    {
-        $this->phonenumbers[] = $phonenumber;
-
-        return $this;
-    }
-
-    /**
-     * Remove phonenumber
-     *
-     * @param \Clunch\IngredientBundle\Entity\Ingredient $phonenumber
-     */
-    public function removePhonenumber(\Clunch\IngredientBundle\Entity\Ingredient $phonenumber)
-    {
-        $this->phonenumbers->removeElement($phonenumber);
-    }
-
-    /**
-     * Get phonenumbers
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getPhonenumbers()
-    {
-        return $this->phonenumbers;
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $ingredient;
-
-
-    /**
-     * Add ingredient
-     *
-     * @param \Clunch\IngredientBundle\Entity\Ingredient $ingredient
-     *
-     * @return Recipe
-     */
-    public function addIngredient(\Clunch\IngredientBundle\Entity\Ingredient $ingredient)
-    {
-        $this->ingredient[] = $ingredient;
-
-        return $this;
-    }
-
-    /**
-     * Remove ingredient
-     *
-     * @param \Clunch\IngredientBundle\Entity\Ingredient $ingredient
-     */
-    public function removeIngredient(\Clunch\IngredientBundle\Entity\Ingredient $ingredient)
-    {
-        $this->ingredient->removeElement($ingredient);
-    }
-
-    /**
-     * Get ingredient
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getIngredient()
-    {
-        return $this->ingredient;
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $ingredients;
-
-
-    /**
-     * Get ingredients
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getIngredients()
-    {
-        return $this->ingredients;
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $allergy;
-
 
     /**
      * Add allergy
@@ -335,11 +277,6 @@ class Recipe
     {
         return $this->allergy;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $tag;
-
 
     /**
      * Add tag

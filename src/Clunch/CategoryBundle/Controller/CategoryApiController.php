@@ -9,7 +9,7 @@
 namespace Clunch\CategoryBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Clunch\CategoryBundle\Entity\Category;
 use Clunch\RecipeBundle\Entity\Recipe;
 
@@ -24,7 +24,7 @@ class CategoryApiController extends Controller
      * Route: /api/categories
      * Method: GET
      *
-     * @return JsonResponse
+     * @return Response
      */
     public function getCategoriesAction()
     {
@@ -33,9 +33,9 @@ class CategoryApiController extends Controller
         $em = $this->getDoctrine()->getManager();
         $categoryRepository = $em->getRepository(Category::class);
         $categoryList = $categoryRepository->findAll();
-        $categoryList = $serializer->toArray($categoryList);
+        $categoryList = $serializer->serialize($categoryList, 'json');
 
-        return new JsonResponse($categoryList);
+        return new Response($categoryList);
     }
 
     /**
@@ -44,7 +44,7 @@ class CategoryApiController extends Controller
      * Method: GET
      *
      * @param $id
-     * @return JsonResponse
+     * @return Response
      */
     public function getCategoryRecipesAction($id)
     {
@@ -57,9 +57,8 @@ class CategoryApiController extends Controller
         $recipeRepository = $em->getRepository(Recipe::class);
         $recipeList = $recipeRepository->findByCategory($categoryItem);
 
-        $categoryItem = $serializer->toArray($categoryItem);
-        $recipeList = $serializer->toArray($recipeList);
+        $recipeList = $serializer->serialize($recipeList, 'json');
 
-        return new JsonResponse($recipeList);
+        return new Response($recipeList);
     }
 }

@@ -20,6 +20,10 @@ Clunch\RecipeBundle\Entity\Recipe:
         duration:
             type: time
 
+        ingredients:
+            type: array
+            nullable: true
+
     manyToOne:
       image:
         targetEntity: Application\Sonata\MediaBundle\Entity\Media
@@ -36,17 +40,6 @@ Clunch\RecipeBundle\Entity\Recipe:
           referencedColumnName: id
 
     manyToMany:
-      ingredients:
-        targetEntity: Clunch\IngredientBundle\Entity\Ingredient
-        joinTable:
-          name: recipes_ingredients
-          joinColumns:
-            recipe_id:
-              referencedColumnName: id
-          inverseJoinColumns:
-            ingredient_id:
-              referencedColumnName: id
-
       allergy:
         targetEntity: Clunch\AllergyBundle\Entity\Allergy
         joinTable:

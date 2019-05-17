@@ -1,0 +1,23 @@
+Clunch\RecipeBundle\Entity\Recipe:
+    exclusion_policy: ALL
+    properties:
+        id:
+            expose: true
+        title:
+            expose: true
+        slug:
+            expose: true
+        body:
+            expose: true
+        duration:
+            expose: true
+        image:
+            expose: true
+        category:
+            expose: true
+        ingredients:
+            expose: true
+        allergy:
+            expose: true
+        tag:
+            expose: true
