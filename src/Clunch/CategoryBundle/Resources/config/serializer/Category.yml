@@ -9,3 +9,5 @@ Clunch\CategoryBundle\Entity\Category:
             expose: true
         description:
             expose: true
+        image:
+            expose: true
