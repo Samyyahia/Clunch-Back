@@ -17,4 +17,13 @@ Clunch\CategoryBundle\Entity\Category:
             length: 255
         description:
             type: text
+
+    manyToOne:
+        image:
+            targetEntity: Application\Sonata\MediaBundle\Entity\Media
+            fetch: EAGER
+            joinColumn:
+                name: image_id
+                referencedColumnName: id
+
     lifecycleCallbacks: {  }

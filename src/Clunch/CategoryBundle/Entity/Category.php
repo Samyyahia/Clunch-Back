@@ -8,7 +8,7 @@ namespace Clunch\CategoryBundle\Entity;
 class Category
 {
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
@@ -31,7 +31,7 @@ class Category
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -120,5 +120,34 @@ class Category
         }
 
         return $this->name;
+    }
+    /**
+     * @var \Application\Sonata\MediaBundle\Entity\Media
+     */
+    private $image;
+
+
+    /**
+     * Set image
+     *
+     * @param \Application\Sonata\MediaBundle\Entity\Media $image
+     *
+     * @return Category
+     */
+    public function setImage(\Application\Sonata\MediaBundle\Entity\Media $image = null)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \Application\Sonata\MediaBundle\Entity\Media
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 }
