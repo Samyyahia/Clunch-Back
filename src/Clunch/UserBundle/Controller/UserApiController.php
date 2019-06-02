@@ -8,6 +8,7 @@
 
 namespace Clunch\UserBundle\Controller;
 
+use Application\Sonata\MediaBundle\Entity\Media;
 use Clunch\UserBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -80,5 +81,47 @@ class UserApiController extends Controller
         $res['message'] = ($res['code'] === 200)? 'Il y a bien un utilisateur a cette adresse mail': 'Il n\'y a aucun utilisateur a cette adresse mail';
 
         return new JsonResponse($res);
+    }
+
+
+    /**
+     * Function to edit a User
+     * Route: /api/users/:edits
+     * Method: POST
+     *
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function postUserEditAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $userRepository = $em->getRepository(User::class);
+        $user = $userRepository ->find($id);
+
+        if ($request->get('name')) {
+            $user->setDisplayName($request->get('name'));
+        }
+
+        if ($request->get('pole')) {
+            $user->setPole($request->get('pole'));
+        }
+
+        if ($request->get('desc')) {
+            $user->setDescription($request->get('desc'));
+        }
+
+        if ($request->get('image')) {
+            $media = new Media();
+            $media->setBinaryContent($request->get('image'));
+            $media->setContext('default');
+            $media->setProviderName('sonata.media.provider.image');
+
+            $em->persist($media);
+        }
+
+        $em->persist($user);
+        $em->flush();
+
+        return new JsonResponse($user);
     }
 }

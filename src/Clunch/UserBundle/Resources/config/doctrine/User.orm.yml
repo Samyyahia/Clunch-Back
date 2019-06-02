@@ -9,6 +9,12 @@ Clunch\UserBundle\Entity\User:
             generator:
                 strategy: AUTO
     fields:
+        display_name:
+            type: string
+            nullable: true
+        pole:
+            type: string
+            nullable: true
         description:
             type: text
             nullable: true

@@ -197,4 +197,62 @@ class User extends BaseUser
     {
         return $this->description;
     }
+    /**
+     * @var string
+     */
+    private $display_name;
+
+    /**
+     * @var string
+     */
+    private $pole;
+
+
+    /**
+     * Set displayName
+     *
+     * @param string $displayName
+     *
+     * @return User
+     */
+    public function setDisplayName($displayName)
+    {
+        $this->display_name = $displayName;
+
+        return $this;
+    }
+
+    /**
+     * Get displayName
+     *
+     * @return string
+     */
+    public function getDisplayName()
+    {
+        return $this->display_name;
+    }
+
+    /**
+     * Set pole
+     *
+     * @param string $pole
+     *
+     * @return User
+     */
+    public function setPole($pole)
+    {
+        $this->pole = $pole;
+
+        return $this;
+    }
+
+    /**
+     * Get pole
+     *
+     * @return string
+     */
+    public function getPole()
+    {
+        return $this->pole;
+    }
 }
