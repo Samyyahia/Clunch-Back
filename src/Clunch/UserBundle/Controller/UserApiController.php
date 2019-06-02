@@ -86,17 +86,17 @@ class UserApiController extends Controller
 
     /**
      * Function to edit a User
-     * Route: /api/users/:edits
+     * Route: /api/users/{id}/edits
      * Method: POST
      *
+     * @param $id
      * @param Request $request
      * @return JsonResponse
      */
-    public function postUserEditAction(Request $request, $id)
+    public function postUserEditAction(Request $request, User $id)
     {
         $em = $this->getDoctrine()->getManager();
-        $userRepository = $em->getRepository(User::class);
-        $user = $userRepository ->find($id);
+        $user = $id;
 
         if ($request->get('name')) {
             $user->setDisplayName($request->get('name'));
