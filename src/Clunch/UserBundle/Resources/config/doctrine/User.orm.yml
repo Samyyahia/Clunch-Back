@@ -9,7 +9,7 @@ Clunch\UserBundle\Entity\User:
             generator:
                 strategy: AUTO
     fields:
-        desc:
+        description:
             type: text
             nullable: true
 

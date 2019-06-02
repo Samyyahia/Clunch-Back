@@ -15,11 +15,6 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @var string
-     */
-    private $desc;
-
-    /**
      * @var \Application\Sonata\MediaBundle\Entity\Media
      */
     private $picture;
@@ -28,30 +23,7 @@ class User extends BaseUser
     {
         parent::__construct();
         // your own logic
-    }
-
-    /**
-     * Set desc
-     *
-     * @param string $desc
-     *
-     * @return User
-     */
-    public function setDesc($desc)
-    {
-        $this->desc = $desc;
-
-        return $this;
-    }
-
-    /**
-     * Get desc
-     *
-     * @return string
-     */
-    public function getDesc()
-    {
-        return $this->desc;
+        $this->roles = array('ROLE_USER');
     }
 
     /**
@@ -195,5 +167,34 @@ class User extends BaseUser
         }
 
         return $this->username;
+    }
+    /**
+     * @var string
+     */
+    private $description;
+
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return User
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 }

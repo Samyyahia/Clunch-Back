@@ -7,6 +7,8 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 
 class UserAdmin extends AbstractAdmin
 {
@@ -20,7 +22,23 @@ class UserAdmin extends AbstractAdmin
             ->add('username', null, array(
                 'label'    => 'Nom d\'utilisateur'
             ))
-            ->add('email')
+            ->add('email');
+        if (!$this->getSubject()->getId()) {
+            $formMapper
+                ->add('plainPassword', RepeatedType::class, array(
+                'type' => PasswordType::class,
+                'options' => array(
+                    'translation_domain' => 'FOSUserBundle',
+                    'attr' => array(
+                        'autocomplete' => 'new-password',
+                    ),
+                ),
+                'first_options' => array('label' => 'form.password'),
+                'second_options' => array('label' => 'form.password_confirmation'),
+                'invalid_message' => 'fos_user.password.mismatch',
+            ));
+        }
+        $formMapper
             ->add('picture', 'sonata_type_model_list', array(
                 'label'   => 'Image de Profil',
             ), array(
@@ -28,7 +46,7 @@ class UserAdmin extends AbstractAdmin
                     'context' => 'default'
                 )
             ))
-            ->add('desc', null, array(
+            ->add('description', null, array(
                 'label'   => 'Description du Profil'
             ))
             ->add('allergy', 'sonata_type_model', array(
@@ -37,6 +55,9 @@ class UserAdmin extends AbstractAdmin
                 'sortable'     => true,
                 'by_reference' => false,
                 'label'        => 'Allergies de l\'utilisateur'
+            ))
+            ->add('company', 'sonata_type_model_list', array(
+                'label'   => 'Entreprise',
             ))
             ->add('enabled', CheckboxType::class, array(
                 'required' => false,
