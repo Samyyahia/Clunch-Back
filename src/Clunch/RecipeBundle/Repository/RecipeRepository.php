@@ -10,4 +10,12 @@ namespace Clunch\RecipeBundle\Repository;
  */
 class RecipeRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function search($search)
+    {
+        $query = $this->createQueryBuilder("p")
+            ->where('p.title LIKE :search')
+            ->setParameter('search', "%".$search."%");
+
+        return $query->getQuery()->getResult();
+    }
 }

@@ -9,6 +9,8 @@
 namespace Clunch\CategoryBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Clunch\CategoryBundle\Entity\Category;
 use Clunch\RecipeBundle\Entity\Recipe;
@@ -60,5 +62,30 @@ class CategoryApiController extends Controller
         $recipeList = $serializer->serialize($recipeList, 'json');
 
         return new Response($recipeList);
+    }
+
+
+    /**
+     * Function to get Recipe Item by id
+     * Route: /api/category/search
+     * Method: GET
+     *
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function getCategorySearchAction(Request $request)
+    {
+        $serializer = $this->get('jms_serializer');
+
+        $em = $this->getDoctrine()->getManager();
+
+        $query = $request->get('query');
+
+        $categoryRepository = $em->getRepository(Category::class);
+        $categoryList = $categoryRepository->search($query);
+
+        $categoryList = $serializer->toArray($categoryList);
+
+        return new JsonResponse($categoryList);
     }
 }

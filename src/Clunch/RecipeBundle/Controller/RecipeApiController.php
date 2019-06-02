@@ -11,6 +11,7 @@ namespace Clunch\RecipeBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Clunch\RecipeBundle\Entity\Recipe;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class RecipeApiController
@@ -38,5 +39,29 @@ class RecipeApiController extends Controller
         $recipeItem = $serializer->toArray($recipeItem);
 
         return new JsonResponse($recipeItem);
+    }
+
+    /**
+     * Function to get Recipe Item by id
+     * Route: /api/recipes/search
+     * Method: GET
+     *
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function getRecipeSearchAction(Request $request)
+    {
+        $serializer = $this->get('jms_serializer');
+
+        $em = $this->getDoctrine()->getManager();
+
+        $query = $request->get('query');
+
+        $recipeRepository = $em->getRepository(Recipe::class);
+        $recipes = $recipeRepository->search($query);
+
+        $recipes = $serializer->toArray($recipes);
+
+        return new JsonResponse($recipes);
     }
 }
