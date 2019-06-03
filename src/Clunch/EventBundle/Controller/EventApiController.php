@@ -10,12 +10,10 @@ namespace Clunch\EventBundle\Controller;
 
 use Clunch\CompanyBundle\Entity\Company;
 use Clunch\EventBundle\Entity\Event;
-use Clunch\UserBundle\Entity\User;
 use DateTime;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class EventApiController
