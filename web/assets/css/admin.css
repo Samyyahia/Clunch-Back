@@ -74,3 +74,11 @@ a:hover {
     color: rgb(255, 194, 83);
     border-color: rgb(255, 194, 83);
 }
+
+.btn-link {
+    color: rgb(255, 194, 83);
+}
+
+.btn-link:hover {
+    color: rgb(89, 190, 176);
+}
