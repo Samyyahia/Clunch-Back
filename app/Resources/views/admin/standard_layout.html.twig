@@ -4,7 +4,7 @@
         <ul class="nav navbar-top-links">
             {% block sonata_top_nav_menu_user_block %}
                 <li>
-                    <a href="{{ path('sonata_admin_dashboard') }}" class="btn btn-default btn-flat"><i class="fa fa-user fa-fw"></i> Admin</a>
+                    <a href="{{ path('sonata_admin_dashboard') }}" class="btn btn-default btn-flat"><i class="fa fa-user fa-fw"></i> {{ app.user.username | capitalize }}</a>
                 </li>
                 <li>
                     <a href="{{ url('fos_user_security_logout') }}" class="btn btn-default btn-flat"><i class="fa fa-sign-out fa-fw"></i> Déconnexion</a>
