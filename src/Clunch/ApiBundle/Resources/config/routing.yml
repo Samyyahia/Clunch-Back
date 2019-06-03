@@ -13,5 +13,8 @@ user:
 event:
     resource: "@EventBundle/Resources/config/routing.yml"
 
+company:
+    resource: "@CompanyBundle/Resources/config/routing.yml"
+
 comment:
     resource: "@CommentBundle/Resources/config/routing.yml"
