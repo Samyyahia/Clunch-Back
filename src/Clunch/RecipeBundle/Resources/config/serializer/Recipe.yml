@@ -7,6 +7,8 @@ Clunch\RecipeBundle\Entity\Recipe:
             expose: true
         slug:
             expose: true
+        date:
+            expose: true
         body:
             expose: true
         duration:

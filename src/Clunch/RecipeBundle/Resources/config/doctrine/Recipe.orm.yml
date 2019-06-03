@@ -19,7 +19,9 @@ Clunch\RecipeBundle\Entity\Recipe:
             type: text
         duration:
             type: time
-
+        date:
+            type: datetime
+            columnDefinition: TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         ingredients:
             type: array
             nullable: true

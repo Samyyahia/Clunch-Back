@@ -64,4 +64,26 @@ class RecipeApiController extends Controller
 
         return new JsonResponse($recipes);
     }
+
+
+    /**
+     * Function to get Recipe Item by id
+     * Route: /api/recipes/recent
+     * Method: GET
+     *
+     * @return JsonResponse
+     */
+    public function getRecipeRecentAction()
+    {
+        $serializer = $this->get('jms_serializer');
+
+        $em = $this->getDoctrine()->getManager();
+
+        $recipeRepository = $em->getRepository(Recipe::class);
+        $recipes = $recipeRepository->findBy([], ['date' => 'DESC'], 4);
+
+        $recipes = $serializer->toArray($recipes);
+
+        return new JsonResponse($recipes);
+    }
 }
