@@ -89,6 +89,13 @@ sonata_block:
         sonata.admin.block.admin_list:
             contexts: [admin]
 
+# Sonata Admin Configuration
+sonata_admin:
+    title:      Clunch
+    title_logo: assets/logo.png
+    templates:
+        layout: admin\standard_layout.html.twig
+
 # Sonata Media Bundle Configuration
 sonata_media:
     class:
