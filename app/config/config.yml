@@ -95,6 +95,9 @@ sonata_admin:
     title_logo: assets/logo.png
     templates:
         layout: admin\standard_layout.html.twig
+    assets:
+        extra_stylesheets:
+            - assets/css/admin.css
 
 # Sonata Media Bundle Configuration
 sonata_media:
