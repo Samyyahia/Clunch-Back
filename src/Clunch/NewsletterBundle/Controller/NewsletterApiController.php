@@ -21,7 +21,7 @@ class NewsletterApiController extends Controller
 {
     /**
      * Function to register to the Newsletter
-     * Route: /api/newsletters
+     * Route: /api/newsletter
      * Method: POST
      *
      * @param Request $request

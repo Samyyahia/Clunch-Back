@@ -32,6 +32,7 @@ class EventApiController extends Controller
      * @return JsonResponse
      * @throws Exception
      */
+    // TODO
     public function getEventsCompanyAction(Company $company_id)
     {
         $serializer = $this->get('jms_serializer');
@@ -55,6 +56,7 @@ class EventApiController extends Controller
      * @return JsonResponse
      * @throws Exception
      */
+    // TODO
     public function getEventsUserAction(User $user_id)
     {
         $serializer = $this->get('jms_serializer');
@@ -71,7 +73,7 @@ class EventApiController extends Controller
 
     /**
      * Function to get Event Item by id
-     * Route: /api/events/{id}
+     * Route: /api/event/{id}
      * Method: GET
      *
      * @param $id
@@ -101,6 +103,7 @@ class EventApiController extends Controller
      * @return JsonResponse
      * @throws Exception
      */
+    // TODO
     public function getEventsCompanyDateAction(Company $company_id, DateTime $date)
     {
         $serializer = $this->get('jms_serializer');
@@ -148,6 +151,7 @@ class EventApiController extends Controller
      * @return JsonResponse
      * @throws Exception
      */
+    // TODO
     public function getEventsParticipatingAction(User $user)
     {
         $serializer = $this->get('jms_serializer');
@@ -171,6 +175,7 @@ class EventApiController extends Controller
      * @return JsonResponse
      * @throws Exception
      */
+    // TODO
     public function getEventsCreatedAction(User $user)
     {
         $serializer = $this->get('jms_serializer');
@@ -195,6 +200,7 @@ class EventApiController extends Controller
      * @return JsonResponse
      * @throws Exception
      */
+    // TODO
     public function postEventCreateAction(Request $request, User $user_id)
     {
 
@@ -251,6 +257,7 @@ class EventApiController extends Controller
      * @return JsonResponse
      * @throws Exception
      */
+    // TODO
     public function postEventUserJoinAction(Event $event, User $user_id)
     {
         $em = $this->getDoctrine()->getManager();
@@ -278,6 +285,7 @@ class EventApiController extends Controller
      * @return JsonResponse
      * @throws Exception
      */
+    // TODO
     public function postEventUserLeaveAction(Event $event, User $user_id)
     {
         $em = $this->getDoctrine()->getManager();
@@ -297,7 +305,7 @@ class EventApiController extends Controller
 
     /**
      * Function to Delete an Event
-     * Route: /api/events/{$event_id}
+     * Route: /api/event/{$event_id}
      * Method: DELETE
      *
      * @param Event $event_id

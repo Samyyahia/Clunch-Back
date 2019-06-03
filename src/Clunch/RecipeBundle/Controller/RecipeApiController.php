@@ -21,7 +21,7 @@ class RecipeApiController extends Controller
 {
     /**
      * Function to get Recipe Item by id
-     * Route: /api/recipes/{id}
+     * Route: /api/recipe/{id}
      * Method: GET
      *
      * @param $id
@@ -49,7 +49,7 @@ class RecipeApiController extends Controller
      * @param Request $request
      * @return JsonResponse
      */
-    public function getRecipeSearchAction(Request $request)
+    public function getRecipesSearchAction(Request $request)
     {
         $serializer = $this->get('jms_serializer');
 
@@ -73,7 +73,7 @@ class RecipeApiController extends Controller
      *
      * @return JsonResponse
      */
-    public function getRecipeRecentAction()
+    public function getRecipesRecentAction()
     {
         $serializer = $this->get('jms_serializer');
 

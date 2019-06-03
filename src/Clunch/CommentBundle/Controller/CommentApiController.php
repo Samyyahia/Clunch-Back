@@ -9,6 +9,8 @@
 namespace Clunch\CommentBundle\Controller;
 
 use Clunch\CommentBundle\Entity\Comment;
+use DateTime;
+use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,12 +23,12 @@ class CommentApiController extends Controller
 {
     /**
      * Function to create a new Comment on a Event
-     * Route: /api/comments
+     * Route: /api/comment
      * Method: POST
      *
      * @param Request $request
      * @return JsonResponse
-     * @throws \Exception
+     * @throws Exception
      */
     public function postCommentAction(Request $request)
     {
@@ -38,7 +40,7 @@ class CommentApiController extends Controller
             $em = $this->getDoctrine()->getManager();
 
             $comment = new Comment();
-            $comment->setDate(new \DateTime());
+            $comment->setDate(new DateTime());
             $comment->setEvent($event);
             $comment->setContent($content);
             $comment->setUser($user);

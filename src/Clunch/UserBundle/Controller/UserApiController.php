@@ -42,7 +42,7 @@ class UserApiController extends Controller
 
     /**
      * Function to get single User Item From Category Entity
-     * Route: /api/users/{id}
+     * Route: /api/user/{id}
      * Method: GET
      *
      * @param $id
@@ -63,7 +63,7 @@ class UserApiController extends Controller
 
     /**
      * Function to get single User Item From Category Entity
-     * Route: /api/users/checks
+     * Route: /api/user/checks
      * Method: POST
      *
      * @param Request $request
@@ -86,7 +86,7 @@ class UserApiController extends Controller
 
     /**
      * Function to edit a User
-     * Route: /api/users/{id}/edits
+     * Route: /api/user/{id}/edit
      * Method: POST
      *
      * @param $id
