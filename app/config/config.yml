@@ -164,7 +164,7 @@ jms_serializer:
                 path: "@RecipeBundle/Resources/config/serializer"
     handlers:
         datetime:
-            default_format: "Y-m-d\\TH:i:sP"
+            default_format: "Y-m-d H:m"
             default_timezone: "UTC"
 
 sensio_framework_extra:
