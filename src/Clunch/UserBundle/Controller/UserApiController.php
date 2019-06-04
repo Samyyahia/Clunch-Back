@@ -66,7 +66,7 @@ class UserApiController extends Controller
 
     /**
      * Function to get single User Item From Category Entity
-     * Route: /api/user/checks
+     * Route: /api/user/check
      * Method: POST
      *
      * @param Request $request

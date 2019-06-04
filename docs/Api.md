@@ -3,9 +3,10 @@
 ### Email Check
 -   Method: **POST**
 -   Route: **/api/users/checks**
--   Parameters:
+-   Body:
     -   email (String)
 -   Response: **En fonction de ce qui est envoyé l'api retourne un code et un message différent**
+    - Renvoit un code 200 si il y a bien un utilisateur a cet email  
 ```
 {
     "code": Integer,
@@ -15,7 +16,7 @@
 
 ### Login
 -   Method: **POST**
--   Route: **/api/login_check**
+-   Route: **/api/login**
 -   Header: **Content-Type: application/json**
 -   Body: `{"email":"email","password":"password"}`
 -   Response: 
@@ -44,25 +45,74 @@
     }
 }
 ```
+
 ### Get User List
 -   Method: **GET**
 -   Route: **/api/users**
 -   Authorization:
-    -   Bearer Token: Token
--   Response: `{token: token}`
+    -   Bearer Token: **{Token)**
+-   Response: 
+``` 
+[
+    {
+        "id": Integer,
+        "username": String,
+        "usernameCanonical": String,
+        "email": String,
+        "emailCanonical": String,
+        "enabled": true,
+        "password": String(hash),
+        "lastLogin": DateTme,
+        "groups": Array,
+        "roles": Array,
+        "picture": String,
+        "company": {
+            "id": Integer,
+            "name": String,
+            "token": String,
+            "users": Array
+        }
+        "allergy": Array,
+        "comments": Array
+    }
+]
+```
 
 ### Get Single User
 -   Method: **GET**
--   Route: **/api/users/{id}**
+-   Route: **/api/user/{id}**
 -   Authorization:
-    -   Bearer Token: Token
--   Response: `{token: token}`
+    -   Bearer Token: **{Token)**
+-   Response: 
+```
+{
+    "id": Integer,
+    "username": String,
+    "usernameCanonical": String,
+    "email": String,
+    "emailCanonical": String,
+    "enabled": true,
+    "password": String(hash),
+    "lastLogin": DateTme,
+    "groups": Array,
+    "roles": Array,
+    "picture": String,
+    "company": {
+        "id": Integer,
+        "name": String,
+        "token": String,
+        "users": Array
+    }
+    "allergy": Array,
+    "comments": Array
+}
+```
 
 ### Get Category List
 -   Method: **GET**
 -   Route: **/api/categories**
 -   Authorization:
-    -   Bearer Token: Token
+    -   Bearer Token: **{Token)**
 -   Response: 
 ```
 [
@@ -71,17 +121,18 @@
         "name": String,
         "slug": String,
         "description": String
+        "image": String
     },
     {...},
     {...}
 ]
 ```
 
-### Get Single Category
+### Get Single Category Recipe List
 -   Method: **GET**
 -   Route: **/api/categories/{id}/recipes**
 -   Authorization:
-    -   Bearer Token: Token
+    -   Bearer Token: **{Token)**
 -   Response: 
 ```
 [
@@ -91,7 +142,7 @@
         "slug": String,
         "body": String,
         "duration": DateTime,
-        "image": Media,
+        "image": String,
         "category": Category
         "ingredients": Array(Ingredient),
         "allergy": Array(Allergy),
@@ -104,9 +155,9 @@
 
 ### Get Single Recipe
 -   Method: **GET**
--   Route: **/api/recipes/{id}**
+-   Route: **/api/recipe/{id}**
 -   Authorization:
-    -   Bearer Token: Token
+    -   Bearer Token: **{Token)**
 -   Response: 
 ```
 {
@@ -115,19 +166,20 @@
     "slug": String,
     "body": String,
     "duration": DateTime,
-    "image": Media,
+    "image": String,
     "category": Category
     "ingredients": Array(Ingredient),
     "allergy": Array(Allergy),
-    "tag": Array(Tag)
+    "tag": Array(Tag),
+    "date": DateTime
 }
 ```
 
 ### Get Single Event
 -   Method: **GET**
--   Route: **/api/events/{id}**
+-   Route: **/api/event/{id}**
 -   Authorization:
-    -   Bearer Token: Token
+    -   Bearer Token: **{Token)**
 -   Response: 
 ```
 {
@@ -138,16 +190,17 @@
     "date": DateTime,
     "comments": Array(Comment),
     "user": User
-    "participants": Array(User)
+    "participants": Array(User),
+    "limitDate": DateTime
 }
 ```
 
 ### Get User Company related Events
 Permet de récupérer la liste de tous les evenements de la comapagnie de l'utilisateur courant
 -   Method: **GET**
--   Route: **/api/events/{company_id}/company**
+-   Route: **/api/company/{company_id}/events**
 -   Authorization:
-    -   Bearer Token: Token
+    -   Bearer Token: **{Token)**
 -   Response: 
 ```
 [
@@ -159,7 +212,8 @@ Permet de récupérer la liste de tous les evenements de la comapagnie de l'util
         "date": DateTime,
         "comments": Array(Comment),
         "user": User
-        "participants": Array(User)
+        "participants": Array(User),
+        "limitDate": DateTime
     },
     {...},
     {...}
@@ -169,9 +223,9 @@ Permet de récupérer la liste de tous les evenements de la comapagnie de l'util
 ### Get User related Events
 Permet de récupérer la liste de tous les evenements de l'utilisateur courant (inscrit + crée)
 -   Method: **GET**
--   Route: **/api/events/{user_id}/user**
+-   Route: **/api/user/{user_id}/events**
 -   Authorization:
-    -   Bearer Token: Token
+    -   Bearer Token: **{Token)**
 -   Response: 
 ```
 [
@@ -183,7 +237,8 @@ Permet de récupérer la liste de tous les evenements de l'utilisateur courant (
         "date": DateTime,
         "comments": Array(Comment),
         "user": User
-        "participants": Array(User)
+        "participants": Array(User),
+        "limitDate": DateTime
     },
     {...},
     {...}
@@ -193,9 +248,9 @@ Permet de récupérer la liste de tous les evenements de l'utilisateur courant (
 ### Get User Participating Events
 Permet de récupérer la liste de tous les evenements où l'utilisateur courant est inscrit
 -   Method: **GET**
--   Route: **/api/events/{user}/participating**
+-   Route: **/api/user/{user}/events/participating**
 -   Authorization:
-    -   Bearer Token: Token
+    -   Bearer Token: **{Token)**
 -   Response: 
 ```
 [
@@ -207,7 +262,8 @@ Permet de récupérer la liste de tous les evenements où l'utilisateur courant 
         "date": DateTime,
         "comments": Array(Comment),
         "user": User
-        "participants": Array(User)
+        "participants": Array(User),
+        "limitDate": DateTime
     },
     {...},
     {...}
@@ -217,9 +273,9 @@ Permet de récupérer la liste de tous les evenements où l'utilisateur courant 
 ### Get User Created Events
 Permet de récupérer la liste de tous les evenements que l'utilisateur courant à créer
 -   Method: **GET**
--   Route: **/api/events/{user}/created**
+-   Route: **/api/user/{user}/events/created**
 -   Authorization:
-    -   Bearer Token: Token
+    -   Bearer Token: **{Token)**
 -   Response: 
 ```
 [
@@ -231,7 +287,8 @@ Permet de récupérer la liste de tous les evenements que l'utilisateur courant 
         "date": DateTime,
         "comments": Array(Comment),
         "user": User
-        "participants": Array(User)
+        "participants": Array(User),
+        "limitDate": DateTime
     },
     {...},
     {...}
@@ -241,12 +298,12 @@ Permet de récupérer la liste de tous les evenements que l'utilisateur courant 
 ### Get Events By Date and Company
 Permet de récupérer la liste de tous les evenements de la date courrente
 -   Method: **GET**
--   Route: **/api/events/{company_id}/companies/{date}/date**
+-   Route: **/api/company/{company_id}/date/{date}/events**
     - date au format : dd.MM.YYYY 
     - => Ex: 17.11.2019
     - /api/events/1/companies/17.11.2019/date
 -   Authorization:
-    -   Bearer Token: Token
+    -   Bearer Token: **{Token)**
 -   Response: 
 ```
 [
@@ -258,7 +315,8 @@ Permet de récupérer la liste de tous les evenements de la date courrente
         "date": DateTime,
         "comments": Array(Comment),
         "user": User
-        "participants": Array(User)
+        "participants": Array(User),
+        "limitDate": DateTime
     },
     {...},
     {...}
@@ -267,10 +325,10 @@ Permet de récupérer la liste de tous les evenements de la date courrente
 
 ### Create an Event
 -   Method: **POST**
--   Route: **/api/events/{user_id}/create**
+-   Route: **/api/user/{user_id}/event/create**
 -   Authorization:
-    -   Bearer Token: Token
--   Parameters:
+    -   Bearer Token: **{Token)**
+-   Body:
     -   recipe (String)
     -   date (String) => format: dd.MM.YYYY
     -   limitDate (String) => format: dd.MM.YYYY
@@ -286,9 +344,9 @@ Permet de récupérer la liste de tous les evenements de la date courrente
 
 ### Join an Event
 -   Method: **POST**
--   Route: **/api/events/{event_id}/users/{user_id}/joins**
+-   Route: **/api/user/{user_id}/event/{event_id}/join**
 -   Authorization:
-    -   Bearer Token: Token
+    -   Bearer Token: **{Token)**
 -   Response: **En fonction de ce qui est envoyé l'api retourne un code et un message différent**
 ```
 [
@@ -299,9 +357,9 @@ Permet de récupérer la liste de tous les evenements de la date courrente
 
 ### Leave an Event
 -   Method: **POST**
--   Route: **/api/events/{event_id}/users/{user_id}/leaves**
+-   Route: **/api/user/{user_id}/event/{event_id}/leave**
 -   Authorization:
-    -   Bearer Token: Token
+    -   Bearer Token: **{Token)**
 -   Response: **En fonction de ce qui est envoyé l'api retourne un code et un message différent**
 ```
 [
@@ -313,10 +371,10 @@ Permet de récupérer la liste de tous les evenements de la date courrente
 ### Register to the newsletter
 **Cette fonction ne sert qu'au front mais pas l'appli mobile**
 -   Method: **POST**
--   Route: **/api/newsletters**
+-   Route: **/api/newsletter**
 -   Authorization:
     -   Bearer Token: Token
--   Parameters:
+-   Body:
     - mail (String)
     - phone (String)
     - agreement (String)

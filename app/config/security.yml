@@ -27,7 +27,7 @@ security:
                 username_path:            email
 
         email_check:
-            pattern:   ^/api/users/checks
+            pattern:   ^/api/user/check
             security: false
 
         api:
@@ -61,5 +61,5 @@ security:
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }
         - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api/users/checks, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/user/check, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api, roles: IS_AUTHENTICATED_FULLY }
