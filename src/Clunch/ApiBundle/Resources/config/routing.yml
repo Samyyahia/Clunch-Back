@@ -1,0 +1,20 @@
+category:
+    resource: "@CategoryBundle/Resources/config/routing.yml"
+
+recipe:
+    resource: "@RecipeBundle/Resources/config/routing.yml"
+
+newsletter:
+    resource: "@NewsletterBundle/Resources/config/routing.yml"
+
+user:
+    resource: "@UserBundle/Resources/config/routing.yml"
+
+event:
+    resource: "@EventBundle/Resources/config/routing.yml"
+
+company:
+    resource: "@CompanyBundle/Resources/config/routing.yml"
+
+comment:
+    resource: "@CommentBundle/Resources/config/routing.yml"

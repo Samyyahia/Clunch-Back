@@ -1,6 +1,10 @@
-app:
-    resource: '@AppBundle/Controller/'
-    type: annotation
+user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+    prefix:   /
+
+admin:
+    resource: "@AdminBundle/Resources/config/routing.yml"
+    prefix:   /
 
 admin_area:
     resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
@@ -18,3 +22,11 @@ gallery:
 media:
     resource: '@SonataMediaBundle/Resources/config/routing/media.xml'
     prefix: /media
+
+api_login:
+    path: /api/login
+    methods: POST
+
+api:
+    resource: "@ApiBundle/Resources/config/routing.yml"
+    prefix:   /api/

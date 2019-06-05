@@ -1,0 +1,9 @@
+services:
+    api.event.authentication_success_listener:
+        class: Clunch\ApiBundle\EventListener\AuthenticationSuccessListener
+        arguments: ['@jms_serializer']
+        tags:
+            - { name: kernel.event_listener, event: lexik_jwt_authentication.on_authentication_success, method: onAuthenticationSuccessResponse }
+
+    api.util.inflector.noop_inflector:
+        class: Clunch\ApiBundle\Util\Inflector\NoopInflector

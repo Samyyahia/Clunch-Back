@@ -1,0 +1,13 @@
+Clunch\CommentBundle\Entity\Comment:
+    exclusion_policy: ALL
+    properties:
+        id:
+            expose: true
+        date:
+            expose: true
+        content:
+            expose: true
+        event:
+            expose: true
+        user:
+            expose: true

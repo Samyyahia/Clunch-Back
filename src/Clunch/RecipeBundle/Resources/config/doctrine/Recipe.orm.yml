@@ -1,0 +1,67 @@
+Clunch\RecipeBundle\Entity\Recipe:
+    type: entity
+    table: null
+    repositoryClass: Clunch\RecipeBundle\Repository\RecipeRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+        slug:
+            type: string
+            length: 255
+        body:
+            type: text
+        duration:
+            type: time
+        date:
+            type: datetime
+            columnDefinition: TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        ingredients:
+            type: array
+            nullable: true
+
+    manyToOne:
+      image:
+        targetEntity: Application\Sonata\MediaBundle\Entity\Media
+        fetch: EAGER
+        joinColumn:
+          name: image_id
+          referencedColumnName: id
+
+      category:
+        targetEntity: Clunch\CategoryBundle\Entity\Category
+        fetch: EAGER
+        joinColumn:
+          name: category_id
+          referencedColumnName: id
+
+    manyToMany:
+      allergy:
+        targetEntity: Clunch\AllergyBundle\Entity\Allergy
+        joinTable:
+          name: recipe_allergies
+          joinColumns:
+            recipe_id:
+              referencedColumnName: id
+          inverseJoinColumns:
+            allergy_id:
+              referencedColumnName: id
+
+      tag:
+        targetEntity: Clunch\TagBundle\Entity\Tag
+        joinTable:
+          name: recipe_tags
+          joinColumns:
+            recipe_id:
+              referencedColumnName: id
+          inverseJoinColumns:
+            tag_id:
+              referencedColumnName: id
+
+    lifecycleCallbacks: {  }

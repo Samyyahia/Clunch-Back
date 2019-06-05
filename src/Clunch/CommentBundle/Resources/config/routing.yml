@@ -1,0 +1,3 @@
+comment:
+    type:     rest
+    resource: Clunch\CommentBundle\Controller\CommentApiController

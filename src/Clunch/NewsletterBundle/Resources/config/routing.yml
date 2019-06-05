@@ -1,0 +1,3 @@
+newsletter:
+    type:     rest
+    resource: Clunch\NewsletterBundle\Controller\NewsletterApiController

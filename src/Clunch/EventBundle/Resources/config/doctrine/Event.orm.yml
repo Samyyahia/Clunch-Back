@@ -1,0 +1,47 @@
+Clunch\EventBundle\Entity\Event:
+    type: entity
+    table: null
+    repositoryClass: Clunch\EventBundle\Repository\EventRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        recipe:
+            type: string
+            length: 255
+        description:
+            type: text
+        quantity:
+            type: integer
+        date:
+            type: datetime
+        limitDate:
+            type: datetime
+
+    manyToOne:
+      user:
+        targetEntity: Clunch\UserBundle\Entity\User
+        joinColumn:
+          name: user_id
+          referencedColumnName: id
+
+    oneToMany:
+      comments:
+        targetEntity: Clunch\CommentBundle\Entity\Comment
+        mappedBy: event
+
+    manyToMany:
+      participants:
+        targetEntity: Clunch\UserBundle\Entity\User
+        joinTable:
+          name: events_participants
+          joinColumns:
+            participant_id:
+              referencedColumnName: id
+          inverseJoinColumns:
+            event_id:
+              referencedColumnName: id
+
