@@ -10,6 +10,10 @@ Dependencies
   * **FOSUserBundle v2.0**
   * **Sonata v3.35**
   * **Sonata Media Bundle v3.13**
+  * **JMSSerializerBundle v1.13**
+  * **FOSRestBundle v2.5**
+  * **NelmioCorsBundle v1.5**
+  * **LexikJWTAuthenticationBundle v2.6**
 
 --------------
 
@@ -22,6 +26,7 @@ Setup
   $ php bin/console assets:install
   $ php bin/console doctrine:schema:update --force
 ```
+
 ***
 ### Create a SUPER-ADMIN user
 ```shell
@@ -29,7 +34,6 @@ Setup
 ```
 > Password: **clunch**
 ***
-
 
 ### Launch
 ```shell

@@ -26,14 +26,7 @@
     "user": {
         "id": Integer,
         "username": String,
-        "usernameCanonical": String,
         "email": String,
-        "emailCanonical": String,
-        "enabled": true,
-        "password": String(hash),
-        "lastLogin": DateTme,
-        "groups": Array,
-        "roles": Array,
         "company": {
             "id": Integer,
             "name": String,
@@ -57,14 +50,7 @@
     {
         "id": Integer,
         "username": String,
-        "usernameCanonical": String,
         "email": String,
-        "emailCanonical": String,
-        "enabled": true,
-        "password": String(hash),
-        "lastLogin": DateTme,
-        "groups": Array,
-        "roles": Array,
         "picture": String,
         "company": {
             "id": Integer,
@@ -88,14 +74,7 @@
 {
     "id": Integer,
     "username": String,
-    "usernameCanonical": String,
     "email": String,
-    "emailCanonical": String,
-    "enabled": true,
-    "password": String(hash),
-    "lastLogin": DateTme,
-    "groups": Array,
-    "roles": Array,
     "picture": String,
     "company": {
         "id": Integer,
