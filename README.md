@@ -2,6 +2,9 @@ Clunch Back Office
 ========================
 
 Symfony 3.4 Project
+  
+  * **PHP >=5.5.9**
+  * **MySql 5.6.35**
 
 Dependencies
 --------------
