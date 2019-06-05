@@ -1,0 +1,10 @@
+Clunch\IngredientBundle\Entity\Ingredient:
+    exclusion_policy: ALL
+    properties:
+        id:
+            expose: true
+        name:
+            expose: true
+        image:
+            expose: true
+

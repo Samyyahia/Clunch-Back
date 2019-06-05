@@ -162,6 +162,30 @@ jms_serializer:
             Recipe:
                 namespace_prefix: "Clunch\\RecipeBundle\\Entity"
                 path: "@RecipeBundle/Resources/config/serializer"
+            Allergy:
+                namespace_prefix: "Clunch\\AllergyBundle\\Entity"
+                path: "@AllergyBundle/Resources/config/serializer"
+            Comment:
+                namespace_prefix: "Clunch\\CommentBundle\\Entity"
+                path: "@CommentBundle/Resources/config/serializer"
+            Company:
+                namespace_prefix: "Clunch\\CompanyBundle\\Entity"
+                path: "@CompanyBundle/Resources/config/serializer"
+            Event:
+                namespace_prefix: "Clunch\\EventBundle\\Entity"
+                path: "@EventBundle/Resources/config/serializer"
+            Ingredient:
+                namespace_prefix: "Clunch\\IngredientBundle\\Entity"
+                path: "@IngredientBundle/Resources/config/serializer"
+            Tag:
+                namespace_prefix: "Clunch\\TagBundle\\Entity"
+                path: "@TagBundle/Resources/config/serializer"
+            User:
+                namespace_prefix: "Clunch\\UserBundle\\Entity"
+                path: "@UserBundle/Resources/config/serializer"
+            BaseUser:
+                namespace_prefix: "FOS\\UserBundle"
+                path: "@UserBundle/Resources/config/serializer"
     handlers:
         datetime:
             default_format: "Y-m-d H:i"
