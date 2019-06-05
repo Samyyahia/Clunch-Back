@@ -1,0 +1,52 @@
+Clunch\UserBundle\Entity\User:
+    type: entity
+    table: user
+    repositoryClass: Clunch\UserBundle\Repository\UserRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        display_name:
+            type: string
+            nullable: true
+        pole:
+            type: string
+            nullable: true
+        description:
+            type: text
+            nullable: true
+
+    oneToMany:
+      comments:
+        targetEntity: Clunch\CommentBundle\Entity\Comment
+        mappedBy: user
+
+    manyToOne:
+      picture:
+        targetEntity: Application\Sonata\MediaBundle\Entity\Media
+        fetch: EAGER
+        joinColumn:
+          name: picture_id
+          referencedColumnName: id
+
+      company:
+        targetEntity: Clunch\CompanyBundle\Entity\Company
+        inversedBy: users
+        joinColumn:
+          name: company_id
+          referencedColumnName: id
+
+    manyToMany:
+      allergy:
+        targetEntity: Clunch\AllergyBundle\Entity\Allergy
+        joinTable:
+          name: users_allergies
+          joinColumns:
+            user_id:
+              referencedColumnName: id
+          inverseJoinColumns:
+            allergy_id:
+              referencedColumnName: id

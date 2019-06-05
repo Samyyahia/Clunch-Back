@@ -1,0 +1,54 @@
+services:
+   admin.user:
+           class: Clunch\AdminBundle\Admin\UserAdmin
+           arguments: [~, Clunch\UserBundle\Entity\User, ~]
+           tags:
+               - { name: sonata.admin, manager_type: orm, label: Utilisateurs, group: "Utilisateurs", on_top: true, icon: '<i class="fa fa-users"></i>' }
+
+   admin.company:
+           class: Clunch\AdminBundle\Admin\CompanyAdmin
+           arguments: [~, Clunch\CompanyBundle\Entity\Company, ~]
+           tags:
+               - { name: sonata.admin, manager_type: orm, label: Entreprise, group: "Entreprise", on_top: true, icon: '<i class="fa fa-building"></i>' }
+
+   admin.event:
+           class: Clunch\AdminBundle\Admin\EventAdmin
+           arguments: [~, Clunch\EventBundle\Entity\Event, ~]
+           tags:
+               - { name: sonata.admin, manager_type: orm, label: Evenement, group: "Evenement", on_top: true, icon: '<i class="fa fa-calendar"></i>' }
+
+   admin.recipe:
+           class: Clunch\AdminBundle\Admin\RecipeAdmin
+           arguments: [~, Clunch\RecipeBundle\Entity\Recipe, ~]
+           tags:
+               - { name: sonata.admin, manager_type: orm, label: Recette, group: "Recette", on_top: true, icon: '<i class="fa fa-file-text"></i>' }
+
+   admin.category:
+           class: Clunch\AdminBundle\Admin\CategoryAdmin
+           arguments: [~, Clunch\CategoryBundle\Entity\Category, ~]
+           tags:
+               - { name: sonata.admin, manager_type: orm, label: Catégorie, group: "Catégorie", on_top: true, icon: '<i class="fa fa-object-group"></i>' }
+
+   admin.ingredient:
+           class: Clunch\AdminBundle\Admin\IngredientAdmin
+           arguments: [~, Clunch\IngredientBundle\Entity\Ingredient, ~]
+           tags:
+               - { name: sonata.admin, manager_type: orm, label: Ingredient, group: "Ingredient", on_top: true, icon: '<i class="fa fa-apple"></i>' }
+
+   admin.allergy:
+           class: Clunch\AdminBundle\Admin\AllergyAdmin
+           arguments: [~, Clunch\AllergyBundle\Entity\Allergy, ~]
+           tags:
+               - { name: sonata.admin, manager_type: orm, label: Allergie, group: "Allergie", on_top: true, icon: '<i class="fa fa-medkit"></i>' }
+
+   admin.tag:
+           class: Clunch\AdminBundle\Admin\TagAdmin
+           arguments: [~, Clunch\TagBundle\Entity\Tag, ~]
+           tags:
+               - { name: sonata.admin, manager_type: orm, label: Tag, group: "Tag", on_top: true, icon: '<i class="fa fa-tags"></i>' }
+
+   admin.newsletter:
+           class: Clunch\AdminBundle\Admin\NewsletterAdmin
+           arguments: [~, Clunch\NewsletterBundle\Entity\Newsletter, ~]
+           tags:
+               - { name: sonata.admin, manager_type: orm, label: Newsletter, group: "Newsletter", on_top: true, icon: '<i class="fa fa-envelope"></i>' }

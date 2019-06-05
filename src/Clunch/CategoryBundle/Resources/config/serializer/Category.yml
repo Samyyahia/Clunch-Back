@@ -1,0 +1,13 @@
+Clunch\CategoryBundle\Entity\Category:
+    exclusion_policy: ALL
+    properties:
+        id:
+            expose: true
+        name:
+            expose: true
+        slug:
+            expose: true
+        description:
+            expose: true
+        image:
+            expose: true

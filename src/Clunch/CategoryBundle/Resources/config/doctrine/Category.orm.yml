@@ -1,0 +1,29 @@
+Clunch\CategoryBundle\Entity\Category:
+    type: entity
+    table: null
+    repositoryClass: Clunch\CategoryBundle\Repository\CategoryRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        slug:
+            type: string
+            length: 255
+        description:
+            type: text
+
+    manyToOne:
+        image:
+            targetEntity: Application\Sonata\MediaBundle\Entity\Media
+            fetch: EAGER
+            joinColumn:
+                name: image_id
+                referencedColumnName: id
+
+    lifecycleCallbacks: {  }

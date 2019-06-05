@@ -17,10 +17,6 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
-            // Custom Bundles
-            new AppBundle\AppBundle(),
-            new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
-
             // Sonata Core Bundles
             new Sonata\CoreBundle\SonataCoreBundle(),
             new Sonata\BlockBundle\SonataBlockBundle(),
@@ -33,10 +29,36 @@ class AppKernel extends Kernel
             // Sonata Media Bundle and Dependencies
             new Sonata\MediaBundle\SonataMediaBundle(),
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
+
+            // JMS SerializerBundle
             new JMS\SerializerBundle\JMSSerializerBundle(),
 
             // FOSUser Bundle
-            // new FOS\UserBundle\FOSUserBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
+
+            // FOSRest Bundle
+            new FOS\RestBundle\FOSRestBundle(),
+
+            // CORS Bundle
+            new Nelmio\CorsBundle\NelmioCorsBundle(),
+
+            // JWTAuth
+            new Lexik\Bundle\JWTAuthenticationBundle\LexikJWTAuthenticationBundle(),
+
+            // Custom Bundles
+            new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
+            new Clunch\AdminBundle\AdminBundle(),
+            new Clunch\UserBundle\UserBundle(),
+            new Clunch\CompanyBundle\CompanyBundle(),
+            new Clunch\EventBundle\EventBundle(),
+            new Clunch\CommentBundle\CommentBundle(),
+            new Clunch\RecipeBundle\RecipeBundle(),
+            new Clunch\CategoryBundle\CategoryBundle(),
+            new Clunch\IngredientBundle\IngredientBundle(),
+            new Clunch\AllergyBundle\AllergyBundle(),
+            new Clunch\TagBundle\TagBundle(),
+            new Clunch\NewsletterBundle\NewsletterBundle(),
+            new Clunch\ApiBundle\ApiBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

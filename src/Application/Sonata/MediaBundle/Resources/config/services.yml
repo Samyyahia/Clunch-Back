@@ -1,0 +1,8 @@
+services:
+    application_sonata_media.serializer.media_serializer:
+        class: Application\Sonata\MediaBundle\Serializer\MediaSerializer
+        arguments: ['@sonata.media.pool', '@request_stack']
+        calls:
+            - [serializeMedia, ['@jms_serializer.yaml_serialization_visitor', '@?', '@?', '@?']]
+        tags:
+            - { name: jms_serializer.subscribing_handler }

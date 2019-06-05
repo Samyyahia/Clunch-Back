@@ -1,0 +1,33 @@
+Clunch\CommentBundle\Entity\Comment:
+    type: entity
+    table: null
+    repositoryClass: Clunch\CommentBundle\Repository\CommentRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        date:
+            type: datetime
+        content:
+            type: text
+
+
+    manyToOne:
+        event:
+          targetEntity: Clunch\EventBundle\Entity\Event
+          inversedBy: comments
+          joinColumn:
+            name: event_id
+            referencedColumnName: id
+
+        user:
+          targetEntity: Clunch\UserBundle\Entity\User
+          inversedBy: comments
+          joinColumn:
+            name: user_id
+            referencedColumnName: id
+
+    lifecycleCallbacks: {  }
