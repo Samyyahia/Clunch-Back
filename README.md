@@ -42,6 +42,6 @@ Setup
 
 
 ### DOCUMENTATION
-La documentation est disponible dans le dossier docs
+La documentation est disponible dans le dossier ```/docs```
 - Documentation API
 - Schema de BDD
