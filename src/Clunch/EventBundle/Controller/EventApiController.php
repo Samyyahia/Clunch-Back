@@ -44,30 +44,6 @@ class EventApiController extends Controller
     }
 
     /**
-     * Function to get Event List by date and Company
-     * Route: /api/events/{$company_id}/company/{date}
-     * Method: GET
-     *
-     * @param Company $company_id
-     * @param DateTime $date
-     * @return JsonResponse
-     * @throws Exception
-     */
-    public function getUserEvent(Company $company_id, DateTime $date)
-    {
-        $serializer = $this->get('jms_serializer');
-
-        $em = $this->getDoctrine()->getManager();
-
-        $eventRepository = $em->getRepository(Event::class);
-        $event = $eventRepository->findByUserCompanyAndDate($company_id, $date);
-
-        $event = $serializer->toArray($event);
-
-        return new JsonResponse($event);
-    }
-
-    /**
      * Function to Delete an Event
      * Route: /api/event/{event}
      * Method: DELETE

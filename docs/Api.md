@@ -2,7 +2,7 @@
 
 ### Email Check
 -   Method: **POST**
--   Route: **/api/users/checks**
+-   Route: **/api/user/check**
 -   Body:
     -   email (String)
 -   Response: **En fonction de ce qui est envoyé l'api retourne un code et un message différent**
@@ -108,6 +108,41 @@
 }
 ```
 
+### Edit User
+-   Method: **POST**
+-   Route: **/api/user/{id}/edit**
+-   Authorization:
+    -   Bearer Token: **{Token)**
+-   Body:
+    -   name (String)
+    -   pole (String)
+    -   desc (String)
+    -   image (String) => format: Base64
+-   Response: 
+```
+{
+    "id": Integer,
+    "username": String,
+    "usernameCanonical": String,
+    "email": String,
+    "emailCanonical": String,
+    "enabled": true,
+    "password": String(hash),
+    "lastLogin": DateTme,
+    "groups": Array,
+    "roles": Array,
+    "picture": String,
+    "company": {
+        "id": Integer,
+        "name": String,
+        "token": String,
+        "users": Array
+    }
+    "allergy": Array,
+    "comments": Array
+}
+```
+
 ### Get Category List
 -   Method: **GET**
 -   Route: **/api/categories**
@@ -153,6 +188,28 @@
 ]
 ```
 
+### Search Categories
+-   Method: **GET**
+-   Route: **/api/categories/search**
+-   Authorization:
+    -   Bearer Token: **{Token)**
+-   Parameters:
+    - query ( Exemple => /api/categories/search?query=viandes )
+-   Response: 
+```
+[
+    {
+        "id": Integer,
+        "name": String,
+        "slug": String,
+        "description": String
+        "image": String
+    },
+    {...},
+    {...}
+]
+```
+
 ### Get Single Recipe
 -   Method: **GET**
 -   Route: **/api/recipe/{id}**
@@ -175,6 +232,61 @@
 }
 ```
 
+### Search Recipes
+-   Method: **GET**
+-   Route: **/api/recipes/search**
+-   Authorization:
+    -   Bearer Token: **{Token)**
+-   Parameters:
+    - query ( Exemple => /api/recipes/search?query=viandes )
+-   Response: 
+```
+[
+    {
+        "id": Integer,
+        "title": String,
+        "slug": String,
+        "body": String,
+        "duration": DateTime,
+        "image": String,
+        "category": Category
+        "ingredients": Array(Ingredient),
+        "allergy": Array(Allergy),
+        "tag": Array(Tag),
+        "date": DateTime
+    },
+    {...},
+    {...}
+]
+```
+
+### Get Recent Recipes
+-   Method: **GET**
+-   Route: **/api/recipes/recent**
+-   Authorization:
+    -   Bearer Token: **{Token)**
+-   Response: 
+La route renvoi un max de 4 recettes
+```
+[
+    {
+        "id": Integer,
+        "title": String,
+        "slug": String,
+        "body": String,
+        "duration": DateTime,
+        "image": String,
+        "category": Category
+        "ingredients": Array(Ingredient),
+        "allergy": Array(Allergy),
+        "tag": Array(Tag),
+        "date": DateTime
+    },
+    {...},
+    {...}
+]
+```
+
 ### Get Single Event
 -   Method: **GET**
 -   Route: **/api/event/{id}**
@@ -192,6 +304,19 @@
     "user": User
     "participants": Array(User),
     "limitDate": DateTime
+}
+```
+
+### Delete Single Event
+-   Method: **DELETE**
+-   Route: **/api/event/{id}**
+-   Authorization:
+    -   Bearer Token: **{Token)**
+-   Response: 
+```
+{
+    "code": Integer,
+    "message": String
 }
 ```
 
@@ -301,7 +426,7 @@ Permet de récupérer la liste de tous les evenements de la date courrente
 -   Route: **/api/company/{company_id}/date/{date}/events**
     - date au format : dd.MM.YYYY 
     - => Ex: 17.11.2019
-    - /api/events/1/companies/17.11.2019/date
+    - /api/company/1/date/17.11.2019/events
 -   Authorization:
     -   Bearer Token: **{Token)**
 -   Response: 
@@ -360,6 +485,24 @@ Permet de récupérer la liste de tous les evenements de la date courrente
 -   Route: **/api/user/{user_id}/event/{event_id}/leave**
 -   Authorization:
     -   Bearer Token: **{Token)**
+-   Response: **En fonction de ce qui est envoyé l'api retourne un code et un message différent**
+```
+[
+    "code": Integer,
+    "message": String
+]
+```
+
+
+### Post a Comment
+-   Method: **POST**
+-   Route: **/api/comment**
+-   Authorization:
+    -   Bearer Token: **{Token)**
+-   Body:
+    - user (Int)
+    - content (String)
+    - event (Int)
 -   Response: **En fonction de ce qui est envoyé l'api retourne un code et un message différent**
 ```
 [

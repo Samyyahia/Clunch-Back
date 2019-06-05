@@ -176,7 +176,7 @@ class UserApiController extends Controller
 
     /**
      * Function to get Event List Created by User
-     * Route: /api/user/{user}/events/created.
+     * Route: /api/user/{user}/events/created
      * Method: GET
      *
      * @param User $user
