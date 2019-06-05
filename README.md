@@ -39,3 +39,9 @@ Setup
 ```shell
   $ php bin/console server:run
 ```
+
+
+### DOCUMENTATION
+La documentation est disponible dans le dossier docs
+- Documentation API
+- Schema de BDD
