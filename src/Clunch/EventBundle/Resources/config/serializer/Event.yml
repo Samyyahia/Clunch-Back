@@ -1,0 +1,23 @@
+Clunch\EventBundle\Entity\Event:
+    exclusion_policy: ALL
+    properties:
+        id:
+            expose: true
+        recipe:
+            expose: true
+        token:
+            expose: true
+        description:
+            expose: true
+        quantity:
+            expose: true
+        date:
+            expose: true
+        limitDate:
+            expose: true
+        user:
+            expose: true
+        comments:
+            expose: true
+        participants:
+            expose: true

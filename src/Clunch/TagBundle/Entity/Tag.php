@@ -80,5 +80,17 @@ class Tag
     {
         return $this->slug;
     }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        if (!$this->name) {
+            return '';
+        }
+
+        return $this->name;
+    }
 }
 

@@ -1,0 +1,3 @@
+recipe:
+    type:     rest
+    resource: Clunch\RecipeBundle\Controller\RecipeApiController

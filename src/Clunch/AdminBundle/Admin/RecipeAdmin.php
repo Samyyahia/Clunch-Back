@@ -2,10 +2,13 @@
 
 namespace Clunch\AdminBundle\Admin;
 
+use Clunch\AdminBundle\Form\IngredientsType;
+use Clunch\IngredientBundle\Entity\Ingredient;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
 class RecipeAdmin extends AbstractAdmin
 {
@@ -33,8 +36,12 @@ class RecipeAdmin extends AbstractAdmin
             ->add('body', null, array(
                 'label'   => 'Description de la recette'
             ))
-            ->add('ingredients', null, array(
-                'label'   => 'Ingredients de la recette'
+            ->add('ingredients', CollectionType::class, array(
+                'label'         => 'Ingredients de la recette',
+                'required'      => false,
+                'entry_type'    => IngredientsType::class,
+                'allow_add'     => true,
+                'allow_delete'  => true
             ))
             ->add('tag', 'sonata_type_model', array(
                 'multiple'     => true,

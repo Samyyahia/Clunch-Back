@@ -9,9 +9,20 @@ Clunch\UserBundle\Entity\User:
             generator:
                 strategy: AUTO
     fields:
-        desc:
+        display_name:
+            type: string
+            nullable: true
+        pole:
+            type: string
+            nullable: true
+        description:
             type: text
             nullable: true
+
+    oneToMany:
+      comments:
+        targetEntity: Clunch\CommentBundle\Entity\Comment
+        mappedBy: user
 
     manyToOne:
       picture:

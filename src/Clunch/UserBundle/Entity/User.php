@@ -15,11 +15,6 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @var string
-     */
-    private $desc;
-
-    /**
      * @var \Application\Sonata\MediaBundle\Entity\Media
      */
     private $picture;
@@ -28,30 +23,7 @@ class User extends BaseUser
     {
         parent::__construct();
         // your own logic
-    }
-
-    /**
-     * Set desc
-     *
-     * @param string $desc
-     *
-     * @return User
-     */
-    public function setDesc($desc)
-    {
-        $this->desc = $desc;
-
-        return $this;
-    }
-
-    /**
-     * Get desc
-     *
-     * @return string
-     */
-    public function getDesc()
-    {
-        return $this->desc;
+        $this->roles = array('ROLE_USER');
     }
 
     /**
@@ -144,5 +116,143 @@ class User extends BaseUser
     public function getAllergy()
     {
         return $this->allergy;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $comments;
+
+
+    /**
+     * Add comment
+     *
+     * @param \Clunch\CommentBundle\Entity\Comment $comment
+     *
+     * @return User
+     */
+    public function addComment(\Clunch\CommentBundle\Entity\Comment $comment)
+    {
+        $this->comments[] = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Remove comment
+     *
+     * @param \Clunch\CommentBundle\Entity\Comment $comment
+     */
+    public function removeComment(\Clunch\CommentBundle\Entity\Comment $comment)
+    {
+        $this->comments->removeElement($comment);
+    }
+
+    /**
+     * Get comments
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        if (!$this->username) {
+            return '';
+        }
+
+        return $this->username;
+    }
+    /**
+     * @var string
+     */
+    private $description;
+
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return User
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+    /**
+     * @var string
+     */
+    private $display_name;
+
+    /**
+     * @var string
+     */
+    private $pole;
+
+
+    /**
+     * Set displayName
+     *
+     * @param string $displayName
+     *
+     * @return User
+     */
+    public function setDisplayName($displayName)
+    {
+        $this->display_name = $displayName;
+
+        return $this;
+    }
+
+    /**
+     * Get displayName
+     *
+     * @return string
+     */
+    public function getDisplayName()
+    {
+        return $this->display_name;
+    }
+
+    /**
+     * Set pole
+     *
+     * @param string $pole
+     *
+     * @return User
+     */
+    public function setPole($pole)
+    {
+        $this->pole = $pole;
+
+        return $this;
+    }
+
+    /**
+     * Get pole
+     *
+     * @return string
+     */
+    public function getPole()
+    {
+        return $this->pole;
     }
 }

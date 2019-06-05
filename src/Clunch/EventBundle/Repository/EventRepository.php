@@ -10,4 +10,82 @@ namespace Clunch\EventBundle\Repository;
  */
 class EventRepository extends \Doctrine\ORM\EntityRepository
 {
+    /**
+     * Query To get Event By Current User Company
+     *
+     * @param $company
+     * @return array
+     * @throws \Exception
+     */
+    public function findByUserCompany($company)
+    {
+        $query = $this->createQueryBuilder('p')
+            ->leftJoin('p.user', 'u')
+            ->andWhere('u.company IS NOT NULL')
+            ->andWhere('u.company = :company')
+            ->orderBy('p.date', 'ASC')
+            ->setParameter('company', $company);
+
+        return $query->getQuery()->getResult();
+    }
+
+    /**
+     * Query To get Event Related to the Current User
+     *
+     * @param $user
+     * @return array
+     * @throws \Exception
+     */
+    public function findByRelatedUser($user)
+    {
+
+        $query = $this->createQueryBuilder('p')
+            ->leftJoin('p.participants', 'u')
+            ->where('p.user = :user')
+            ->orWhere(':user MEMBER OF p.participants')
+            ->orderBy('p.date', 'ASC')
+            ->setParameter('user', $user);
+
+        return $query->getQuery()->getResult();
+    }
+
+    /**
+     * Query To get Event By Current User Company And Date
+     *
+     * @param $company
+     * @return array
+     * @throws \Exception
+     */
+    public function findByUserCompanyAndDate($company, $date)
+    {
+        $query = $this->createQueryBuilder('p')
+            ->where('p.date = :current_date')
+            ->leftJoin('p.user', 'u')
+            ->andWhere('u.company IS NOT NULL')
+            ->andWhere('u.company = :company')
+            ->orderBy('p.date', 'ASC')
+            ->setParameter('current_date', $date)
+            ->setParameter('company', $company);
+
+        return $query->getQuery()->getResult();
+    }
+
+    /**
+     * Query To get Participating Event By Current User Company And Date
+     *
+     * @param $user
+     * @return array
+     * @throws \Exception
+     */
+    public function findParticipating(int $user)
+    {
+        $query = $this->createQueryBuilder('p')
+            ->orderBy('p.date', 'ASC');
+        $query->join('p.participants', 'u')
+            ->where($query->expr()->eq('u.id', $user));
+
+        return $query->getQuery()->getResult();
+    }
 }
+
+

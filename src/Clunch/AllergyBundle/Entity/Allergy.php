@@ -81,8 +81,15 @@ class Allergy
         return $this->description;
     }
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
+        if (!$this->title) {
+            return '';
+        }
+
         return $this->title;
     }
 }

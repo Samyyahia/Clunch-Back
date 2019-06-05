@@ -29,10 +29,21 @@ class AppKernel extends Kernel
             // Sonata Media Bundle and Dependencies
             new Sonata\MediaBundle\SonataMediaBundle(),
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
+
+            // JMS SerializerBundle
             new JMS\SerializerBundle\JMSSerializerBundle(),
 
             // FOSUser Bundle
             new FOS\UserBundle\FOSUserBundle(),
+
+            // FOSRest Bundle
+            new FOS\RestBundle\FOSRestBundle(),
+
+            // CORS Bundle
+            new Nelmio\CorsBundle\NelmioCorsBundle(),
+
+            // JWTAuth
+            new Lexik\Bundle\JWTAuthenticationBundle\LexikJWTAuthenticationBundle(),
 
             // Custom Bundles
             new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
@@ -47,6 +58,7 @@ class AppKernel extends Kernel
             new Clunch\AllergyBundle\AllergyBundle(),
             new Clunch\TagBundle\TagBundle(),
             new Clunch\NewsletterBundle\NewsletterBundle(),
+            new Clunch\ApiBundle\ApiBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

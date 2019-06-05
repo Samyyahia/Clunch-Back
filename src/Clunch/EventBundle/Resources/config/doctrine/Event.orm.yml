@@ -18,6 +18,8 @@ Clunch\EventBundle\Entity\Event:
             type: integer
         date:
             type: datetime
+        limitDate:
+            type: datetime
 
     manyToOne:
       user:
@@ -30,3 +32,16 @@ Clunch\EventBundle\Entity\Event:
       comments:
         targetEntity: Clunch\CommentBundle\Entity\Comment
         mappedBy: event
+
+    manyToMany:
+      participants:
+        targetEntity: Clunch\UserBundle\Entity\User
+        joinTable:
+          name: events_participants
+          joinColumns:
+            participant_id:
+              referencedColumnName: id
+          inverseJoinColumns:
+            event_id:
+              referencedColumnName: id
+

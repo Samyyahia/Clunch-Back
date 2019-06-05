@@ -213,4 +213,84 @@ class Event
     {
         return $this->user;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $participants;
+
+
+    /**
+     * Add participant
+     *
+     * @param \Clunch\UserBundle\Entity\User $participant
+     *
+     * @return Event
+     */
+    public function addParticipant(\Clunch\UserBundle\Entity\User $participant)
+    {
+        $this->participants[] = $participant;
+
+        return $this;
+    }
+
+    /**
+     * Remove participant
+     *
+     * @param \Clunch\UserBundle\Entity\User $participant
+     */
+    public function removeParticipant(\Clunch\UserBundle\Entity\User $participant)
+    {
+        $this->participants->removeElement($participant);
+    }
+
+    /**
+     * Get participants
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getParticipants()
+    {
+        return $this->participants;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        if (!$this->recipe) {
+            return '';
+        }
+
+        return $this->recipe;
+    }
+    /**
+     * @var \DateTime
+     */
+    private $limitDate;
+
+
+    /**
+     * Set limitDate
+     *
+     * @param \DateTime $limitDate
+     *
+     * @return Event
+     */
+    public function setLimitDate($limitDate)
+    {
+        $this->limitDate = $limitDate;
+
+        return $this;
+    }
+
+    /**
+     * Get limitDate
+     *
+     * @return \DateTime
+     */
+    public function getLimitDate()
+    {
+        return $this->limitDate;
+    }
 }

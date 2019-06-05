@@ -7,7 +7,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Form\Type\ModelListType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 
 class EventAdmin extends AbstractAdmin
 {
@@ -22,14 +22,19 @@ class EventAdmin extends AbstractAdmin
             ->add('recipe', null, array('label' => 'Plat'))
             ->add('description', null, array('label' => 'Description'))
             ->add('quantity', null, array('label' => 'Quantité'))
-            ->add('date', DateType::class, array(
+            ->add('date', DateTimeType::class, array(
                 'label' => 'Date',
+                'widget' => 'single_text'
+            ))
+            ->add('limitDate', DateTimeType::class, array(
+                'label' => 'Date limite d\'inscription à l\'évenement',
                 'widget' => 'single_text'
             ))
             ->add('user', ModelListType::class, array(
                 'by_reference' => false,
                 'label' => 'Utilisateur'
-            ));
+            ))
+            ->add('participants');
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)

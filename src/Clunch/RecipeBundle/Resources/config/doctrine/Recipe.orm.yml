@@ -19,6 +19,12 @@ Clunch\RecipeBundle\Entity\Recipe:
             type: text
         duration:
             type: time
+        date:
+            type: datetime
+            columnDefinition: TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        ingredients:
+            type: array
+            nullable: true
 
     manyToOne:
       image:
@@ -36,17 +42,6 @@ Clunch\RecipeBundle\Entity\Recipe:
           referencedColumnName: id
 
     manyToMany:
-      ingredients:
-        targetEntity: Clunch\IngredientBundle\Entity\Ingredient
-        joinTable:
-          name: recipes_ingredients
-          joinColumns:
-            recipe_id:
-              referencedColumnName: id
-          inverseJoinColumns:
-            ingredient_id:
-              referencedColumnName: id
-
       allergy:
         targetEntity: Clunch\AllergyBundle\Entity\Allergy
         joinTable:

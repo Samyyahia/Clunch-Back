@@ -22,6 +22,13 @@ class CategoryAdmin extends AbstractAdmin
             ->add('slug')
             ->add('description', null, array(
                 'label'   => 'Description de la catégorie'
+            ))
+            ->add('image', 'sonata_type_model_list', array(
+                'label'   => 'Image',
+            ), array(
+                'link_parameters' => array(
+                    'context' => 'default'
+                )
             ));
     }
 

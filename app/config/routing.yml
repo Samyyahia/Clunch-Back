@@ -1,5 +1,5 @@
 user:
-    resource: "@UserBundle/Resources/config/routing.yml"
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
     prefix:   /
 
 admin:
@@ -22,3 +22,11 @@ gallery:
 media:
     resource: '@SonataMediaBundle/Resources/config/routing/media.xml'
     prefix: /media
+
+api_login:
+    path: /api/login
+    methods: POST
+
+api:
+    resource: "@ApiBundle/Resources/config/routing.yml"
+    prefix:   /api/

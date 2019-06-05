@@ -1,0 +1,19 @@
+Clunch\UserBundle\Entity\User:
+    exclusion_policy: ALL
+    properties:
+        id:
+            expose: true
+        display_name:
+            expose: true
+        pole:
+            expose: true
+        description:
+            expose: true
+        comments:
+            expose: true
+        picture:
+            expose: true
+        company:
+            expose: true
+        allergy:
+            expose: true

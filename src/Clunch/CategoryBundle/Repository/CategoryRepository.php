@@ -10,4 +10,12 @@ namespace Clunch\CategoryBundle\Repository;
  */
 class CategoryRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function search($search)
+    {
+        $query = $this->createQueryBuilder("p")
+            ->where('p.name LIKE :search')
+            ->setParameter('search', "%".$search."%");
+
+        return $query->getQuery()->getResult();
+    }
 }
