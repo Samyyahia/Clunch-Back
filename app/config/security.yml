@@ -30,6 +30,10 @@ security:
             pattern:   ^/api/user/check
             security: false
 
+        newsletter:
+            pattern:   ^/api/newsletter
+            security: false
+
         api:
             pattern:   ^/api
             stateless: true
@@ -62,4 +66,5 @@ security:
         - { path: ^/admin/, role: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }
         - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api/user/check, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/newsletter, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api, roles: IS_AUTHENTICATED_FULLY }
