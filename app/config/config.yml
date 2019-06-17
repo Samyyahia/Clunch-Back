@@ -3,6 +3,7 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: "@AdminBundle/Resources/config/services.yml" }
+    - { resource: "@UserBundle/Resources/config/services.yml" }
     - { resource: "@ApiBundle/Resources/config/services.yml" }
     - { resource: "@ApplicationSonataMediaBundle/Resources/config/services.yml" }
 
@@ -87,6 +88,8 @@ sonata_block:
     blocks:
         # enable the SonataAdminBundle block
         sonata.admin.block.admin_list:
+            contexts: [admin]
+        sonata.admin.block.search_result:
             contexts: [admin]
 
 # Sonata Admin Configuration
