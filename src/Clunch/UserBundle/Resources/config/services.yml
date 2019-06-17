@@ -1,0 +1,5 @@
+services:
+    event_listener.entity_remove:
+        class:  Clunch\UserBundle\EventListener\UserDeleteListener
+        tags:
+            - { name: doctrine.event_listener, event: preRemove }

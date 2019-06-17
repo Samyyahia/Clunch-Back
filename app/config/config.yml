@@ -3,6 +3,7 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: "@AdminBundle/Resources/config/services.yml" }
+    - { resource: "@UserBundle/Resources/config/services.yml" }
     - { resource: "@ApiBundle/Resources/config/services.yml" }
     - { resource: "@ApplicationSonataMediaBundle/Resources/config/services.yml" }
 
